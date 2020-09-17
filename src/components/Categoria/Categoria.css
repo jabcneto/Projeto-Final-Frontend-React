@@ -6,11 +6,6 @@ h2{
     text-align: center;
 }
 
-.container{
-    flex: 1;
-    flex-direction: column;
-}
-
 .categoria {
     justify-content: center;
     display: flex;
