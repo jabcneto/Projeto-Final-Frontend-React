@@ -1,32 +1,23 @@
 import React from "react";
-import { Button, Form, FormControl, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Button, Form, FormControl, Nav, Navbar } from "react-bootstrap";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
-import App from "./App";
-import FormCategoria from "./components/FormCategoria";
+import Home from "./components/Home/Home";
+import Categoria from "./components/Categoria/Pagina/Categoria";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <>
     <BrowserRouter>
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand> <Link to='/' >React-Bootstrap</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link ><Link to='/'>Home</Link></Nav.Link>
+            <Nav.Link ><Link to='/categoria'>Categoria</Link></Nav.Link>
+            <Nav.Link ><Link to='/'>Produto</Link></Nav.Link>
+            <Nav.Link ><Link to='/'>Cliente</Link></Nav.Link>
           </Nav>
           <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -35,8 +26,8 @@ ReactDOM.render(
         </Navbar.Collapse>
       </Navbar>
       <Switch>
-        <Route path="/" exact={true} component={App} />
-        <Route path="/about" component={FormCategoria} />
+        <Route path="/" exact={true} component={Home} />
+        <Route path="/categoria" component={Categoria} />
       </Switch>
     </BrowserRouter>
   </>,

@@ -1,15 +1,18 @@
 import React from "react";
 import axios from "axios";
-import "./Categoria.css";
 
-const Categoria = (props) => {
+import "./CardCategoria.css";
+
+const CardCategoria = (props) => {
   const categoria = props.categoria;
   async function deletar(id) {
     axios
-      .delete(
-        `http://residencia-ecommerce.us-east-1.elasticbeanstalk.com/categoria/${id}`,
-        {headers: {"Access-Control-Allow-Origin": "*"}}
-      )
+      .delete(`https://api-castor.herokuapp.com/categoria/${id}`, {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
       .then((res) => console.log(res));
   }
 
@@ -25,4 +28,4 @@ const Categoria = (props) => {
   );
 };
 
-export default Categoria;
+export default CardCategoria;
