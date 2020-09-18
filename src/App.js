@@ -3,27 +3,30 @@ import axios from "axios";
 
 import "./App.css";
 import Categoria from "./components/Categoria/Categoria";
-import NovaCategoria from "./components/NovaCategoria";
+import FormCategoria from "./components/FormCategoria";
 
 function App() {
   const [categorias, setCategorias] = useState([]);
+  const [novo, setNovo] = useState(0);
 
   useEffect(() => {
     async function fetchCategoria() {
       const data = await axios
         .get(
-          "http://residencia-ecommerce.us-east-1.elasticbeanstalk.com/categoria"
+          "https://api-castor.herokuapp.com/categoria"
         )
         .then((res) => res.data);
 
       setCategorias(data);
     }
     fetchCategoria();
-  }, []);
+    
+  }, [novo]);
+
 
   return (
     <div className='container'>
-      <NovaCategoria />
+      <FormCategoria novo={novo} setNovo={setNovo} />
 
       {categorias.map((categoria) => {
         return <Categoria key={categoria.id} categoria={categoria} />;

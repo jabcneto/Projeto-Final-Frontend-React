@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Button } from "react-bootstrap";
 
-export default () => {
+export default (props) => {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
 
   async function novaCategoria() {
     axios
       .post(
-        "http://residencia-ecommerce.us-east-1.elasticbeanstalk.com/categoria",
+        "https://api-castor.herokuapp.com/categoria",
         {
           id: 0,
           nome: nome,
-          descricao: descricao
+          descricao: descricao,
         }
       )
-      .then((res) => console.log(res));
+      .then((res) => {
+        props.setNovo(props.novo + 1);
+        console.log(res);
+      });
   }
 
   return (
@@ -30,7 +34,7 @@ export default () => {
         placeholder="descricao"
         onChange={(descricao) => setDescricao(descricao.target.value)}
       />
-      <button onClick={() => novaCategoria()}>Salvar</button>
+      <Button variant="outlined" color="primary" onClick={() => novaCategoria()}>Salvar</Button>
     </div>
   );
 };
