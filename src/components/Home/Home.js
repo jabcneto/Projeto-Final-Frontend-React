@@ -1,7 +1,6 @@
 import React from "react";
 
 import "./Home.css";
-import Categoria from "../Categoria/Pagina/Categoria";
 
 function Home() {
   return (

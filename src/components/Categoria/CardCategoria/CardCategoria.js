@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
-import "./CardCategoria.css";
 
+import "./CardCategoria.css";
 
 const CardCategoria = (props) => {
   const categoria = props.categoria;

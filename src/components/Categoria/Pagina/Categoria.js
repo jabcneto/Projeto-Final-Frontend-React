@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import CardCategoria from "../CardCategoria/CardCategoria";
-import FormCategoria from "../../FormCategoria";
+import FormCategoria from "../FormCategoria/FormCategoria";
 import "./Categoria.css";
-import { Container, Nav, Row } from "react-bootstrap";
+import { Container, Nav} from "react-bootstrap";
 
 function Categoria() {
   const [categorias, setCategorias] = useState([]);
