@@ -1,4 +1,3 @@
-.vertical-nav {
-    display: flex;
-    flex-direction: row;
+h2 {
+    margin: 15px 0;
 }

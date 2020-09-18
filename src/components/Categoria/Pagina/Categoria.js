@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+import CardCategoria from "../CardCategoria/CardCategoria";
 import FormCategoria from "../FormCategoria/FormCategoria";
+import { Button, Col, Container, Nav, Row } from "react-bootstrap";
+
 import "./Categoria.css";
-import { Container, Nav} from "react-bootstrap";
 
 function Categoria() {
   const [categorias, setCategorias] = useState([]);
   const [novo, setNovo] = useState(0);
+  const [crudCategoria, setCrudCategoria] = useState("");
 
   useEffect(() => {
     async function fetchCategoria() {
@@ -20,33 +23,57 @@ function Categoria() {
     fetchCategoria();
   }, [novo]);
 
-  console.log(categorias);
+  useEffect(() => {
+    setCrudCategoria(crudCategoria);
+  }, [crudCategoria]);
 
-
-  if(true){
-    return (
-      <Container sm={4}>
-        <Nav defaultActiveKey="/home" as="ul">
-          <Nav.Item as="li">
-            <Nav.Link> Adicionar </Nav.Link>
-          </Nav.Item>
-          <Nav.Item as="li">
-            <Nav.Link >Consultar</Nav.Link>
-          </Nav.Item>
-          <Nav.Item as="li">
-            <Nav.Link >Editar</Nav.Link>
-          </Nav.Item>
-        </Nav>
-  
-        <Container className="">
-          <div>
-            <h1>Nova Categoria</h1>
-            <FormCategoria novo={novo} setNovo={setNovo} />
-          </div>
-        </Container>
+  return (
+    <>
+      <Container fluid>
+        <Row>
+          <Col md="1">
+            <h2 style={{ margin: "10px 0" }}>Categoria</h2>
+            <Nav.Link defaultActiveKey="/home" className="flex-column">
+              <Nav.Link
+                onClick={() =>
+                  setCrudCategoria(
+                    <FormCategoria novo={novo} setNovo={setNovo} />
+                  )
+                }
+              >
+                Adicionar
+              </Nav.Link>
+              <Nav.Link
+                onClick={() =>
+                  setCrudCategoria(
+                    <Row>
+                      {categorias.map((categoria) => {
+                        return (
+                          <CardCategoria
+                            key={categoria.id}
+                            categoria={categoria}
+                          />
+                        );
+                      })}
+                    </Row>
+                  )
+                }
+              >
+                Consultar
+              </Nav.Link>
+              <Nav.Link eventKey="link-2">Editar</Nav.Link>
+            </Nav.Link>
+          </Col>
+        
+          <Col md="2"></Col>
+          <Col md="8">{crudCategoria}</Col>
+          <Col md="1"></Col>
+          <Col md="3"></Col>
+          <Col md="7"></Col>
+        </Row>
       </Container>
-    );
-  }
+    </>
+  );
 }
 
 export default Categoria;

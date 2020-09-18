@@ -12,17 +12,15 @@ ReactDOM.render(
       <Navbar bg="light" expand="lg">
         <Navbar.Brand> <Link to='/' >React-Bootstrap</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav" className='ml-auto' >
           <Nav className="mr-auto">
             <Nav.Link ><Link to='/'>Home</Link></Nav.Link>
             <Nav.Link ><Link to='/categoria'>Categoria</Link></Nav.Link>
             <Nav.Link ><Link to='/'>Produto</Link></Nav.Link>
+            <Nav.Link ><Link to='/'>Funcionario</Link></Nav.Link>
             <Nav.Link ><Link to='/'>Cliente</Link></Nav.Link>
+            <Nav.Link ><Link to='/'>Pedido</Link></Nav.Link>
           </Nav>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-          </Form>
         </Navbar.Collapse>
       </Navbar>
       <Switch>

@@ -40,6 +40,7 @@ export default (props) => {
   return (
     <Container md="auto">
       <div>
+      <h2>Nova Categoria</h2>
         <InputGroup
           className="mb-3"
           onChange={(nome) => setNome(nome.target.value)}
