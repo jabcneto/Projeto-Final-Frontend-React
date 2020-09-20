@@ -1,0 +1,17 @@
+h2{
+    margin: 0;
+}
+
+.titulo{
+    text-align: center;
+}
+
+.categoria {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+}

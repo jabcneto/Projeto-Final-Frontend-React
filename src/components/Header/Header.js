@@ -25,7 +25,7 @@ export default () => {
             <Link to="/">Funcionario</Link>
           </Nav.Link>
           <Nav.Link>
-            <Link to="/">Cliente</Link>
+            <Link to="/cliente">Cliente</Link>
           </Nav.Link>
           <Nav.Link>
             <Link to="/">Pedido</Link>
