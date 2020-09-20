@@ -44,7 +44,7 @@ function Produto() {
               <Nav.Link
                 onClick={() =>
                   setCrudProduto(
-                    <Row>
+                    <>
                       {produtos.map((produto) => {
                         return (
                           <>
@@ -57,7 +57,7 @@ function Produto() {
                           </>
                         );
                       })}
-                    </Row>
+                    </>
                   )
                 }
               >

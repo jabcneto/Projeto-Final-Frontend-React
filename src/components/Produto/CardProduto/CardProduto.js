@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-import { Button, Card, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 
 const CardProduto = (props) => {
   const produto = props.produto;
@@ -27,11 +27,24 @@ const CardProduto = (props) => {
 
   return (
     <>
-      <Card style={{ width: "18rem", margin: "10px" }}>
-        <Card.Body>
-          <Card.Title>{produto.nome}</Card.Title>
-          <Card.Text>{produto.descricao}</Card.Text>
-        </Card.Body>
+      <Card>
+        <Container>
+          <Row>
+            <Col>
+              <Card.Img
+                style={{ width: "300px" }}
+                variant="top"
+                src={produto.urlImagem}
+              />
+            </Col>
+            <Col>
+              <Card.Body>
+                <Card.Title>{produto.nome}</Card.Title>
+                <Card.Text>{produto.descricao}</Card.Text>
+              </Card.Body>
+            </Col>
+          </Row>
+        </Container>
         <Container>
           <Row>
             <Button>Editar</Button>

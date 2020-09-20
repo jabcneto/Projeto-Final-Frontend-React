@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Funcionario from "./components/Funcionario/Pagina/Funcionario";
 import * as serviceWorker from "./serviceWorker";
 
 import Home from "./components/Home/Home";
@@ -11,11 +12,12 @@ import Produto from "./components/Produto/Page/Produto";
 ReactDOM.render(
   <>
     <BrowserRouter>
-      <Header/>
+      <Header />
       <Switch>
         <Route path="/" exact={true} component={Home} />
         <Route path="/categoria" component={Categoria} />
         <Route path="/produto" component={Produto} />
+        <Route path="/funcionario" component={Funcionario} />
       </Switch>
     </BrowserRouter>
   </>,
