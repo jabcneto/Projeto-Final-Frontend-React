@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 import "./CardCategoria.css";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Button, Card, Container, Row } from "react-bootstrap";
 
 const CardCategoria = (props) => {
   const categoria = props.categoria;
+  const [editar, setEditar] = useState();
+
   async function deletar(id) {
     axios
-      .delete(`https://api-castor.herokuapp.com/categoria/${id}`, {
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-      })
+      .delete(
+        `https://api-castor.herokuapp.com/categoria/${id}`,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      )
       .then((res) => console.log(res));
+    props.setNovo(props.novo + 1);
+    console.log("clicou");
   }
 
   return (
@@ -26,10 +34,8 @@ const CardCategoria = (props) => {
         </Card.Body>
         <Container>
           <Row>
-            <div className="Botoes">
-              <Button href="#">Editar</Button>
-              <Button href="#">Deletar</Button>
-            </div>
+            <Button>Editar</Button>
+            <Button onClick={() => deletar(categoria.id)}>Deletar</Button>
           </Row>
         </Container>
       </Card>

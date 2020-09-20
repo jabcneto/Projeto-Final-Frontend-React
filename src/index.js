@@ -1,28 +1,15 @@
 import React from "react";
-import { Button, Form, FormControl, Nav, Navbar } from "react-bootstrap";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Categoria from "./components/Categoria/Pagina/Categoria";
 import * as serviceWorker from "./serviceWorker";
+import Header from "./components/Header/Header";
 
 ReactDOM.render(
   <>
     <BrowserRouter>
-      <Navbar bg="light" expand="lg">
-        <Navbar.Brand> <Link to='/' >React-Bootstrap</Link></Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className='ml-auto' >
-          <Nav className="mr-auto">
-            <Nav.Link ><Link to='/'>Home</Link></Nav.Link>
-            <Nav.Link ><Link to='/categoria'>Categoria</Link></Nav.Link>
-            <Nav.Link ><Link to='/'>Produto</Link></Nav.Link>
-            <Nav.Link ><Link to='/'>Funcionario</Link></Nav.Link>
-            <Nav.Link ><Link to='/'>Cliente</Link></Nav.Link>
-            <Nav.Link ><Link to='/'>Pedido</Link></Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+      <Header/>
       <Switch>
         <Route path="/" exact={true} component={Home} />
         <Route path="/categoria" component={Categoria} />

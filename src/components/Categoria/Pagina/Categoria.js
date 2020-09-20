@@ -3,9 +3,10 @@ import axios from "axios";
 
 import CardCategoria from "../CardCategoria/CardCategoria";
 import FormCategoria from "../FormCategoria/FormCategoria";
-import { Button, Col, Container, Nav, Row } from "react-bootstrap";
+import { Col, Container, Nav, Row } from "react-bootstrap";
 
 import "./Categoria.css";
+import CardCategoriaEditar from "../CardCategoria/CardCategoriaEditar";
 
 function Categoria() {
   const [categorias, setCategorias] = useState([]);
@@ -49,10 +50,21 @@ function Categoria() {
                     <Row>
                       {categorias.map((categoria) => {
                         return (
-                          <CardCategoria
-                            key={categoria.id}
-                            categoria={categoria}
-                          />
+                          <>
+                            <CardCategoria
+                              key={categoria.id}
+                              categoria={categoria}
+                              novo={novo}
+                              setNovo={setNovo}
+                            />
+
+                            <CardCategoriaEditar
+                              key={categoria.id}
+                              categoria={categoria}
+                              novo={novo}
+                              setNovo={setNovo}
+                            />
+                          </>
                         );
                       })}
                     </Row>
@@ -64,7 +76,6 @@ function Categoria() {
               <Nav.Link eventKey="link-2">Editar</Nav.Link>
             </Nav.Link>
           </Col>
-        
           <Col md="2"></Col>
           <Col md="8">{crudCategoria}</Col>
           <Col md="1"></Col>

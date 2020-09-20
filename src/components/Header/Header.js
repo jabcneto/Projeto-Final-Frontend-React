@@ -1,0 +1,37 @@
+import React from "react";
+import { Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+export default () => {
+  return (
+    <Navbar bg="light" expand="lg">
+      <Navbar.Brand>
+        {" "}
+        <Link to="/">React-Bootstrap</Link>
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav" className="ml-auto">
+        <Nav className="mr-auto">
+          <Nav.Link>
+            <Link to="/">Home</Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/categoria">Categoria</Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/">Produto</Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/">Funcionario</Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/">Cliente</Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/">Pedido</Link>
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
+};
