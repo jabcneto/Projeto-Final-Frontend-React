@@ -1,17 +1,17 @@
 import React from "react";
 import axios from "axios";
 
-import "./CardCategoria.css";
+import "./CardFuncionario.css";
 import { Button, Card, Container, Row } from "react-bootstrap";
 
-const CardCategoria = (props) => {
-  const categoria = props.categoria;
+const CardFuncionario = (props) => {
+  const funcionario = props.funcionario;
   // const [editar, setEditar] = useState();
 
   async function deletar(id) {
     axios
       .delete(
-        `https://api-castor.herokuapp.com/categoria/${id}`,
+        `https://api-castor.herokuapp.com/funcionario/${id}`,
         {},
         {
           headers: {
@@ -29,13 +29,13 @@ const CardCategoria = (props) => {
     <>
       <Card style={{ width: "18rem", margin: "10px" }}>
         <Card.Body>
-          <Card.Title>{categoria.nome}</Card.Title>
-          <Card.Text>{categoria.descricao}</Card.Text>
+          <Card.Title>{funcionario.nome}</Card.Title>
+          <Card.Text>{funcionario.cpf}</Card.Text>
         </Card.Body>
         <Container>
           <Row>
             <Button>Editar</Button>
-            <Button onClick={() => deletar(categoria.id)}>Deletar</Button>
+            <Button onClick={() => deletar(funcionario.id)}>Deletar</Button>
           </Row>
         </Container>
       </Card>
@@ -43,4 +43,4 @@ const CardCategoria = (props) => {
   );
 };
 
-export default CardCategoria;
+export default CardFuncionario;

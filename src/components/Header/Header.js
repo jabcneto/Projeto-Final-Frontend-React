@@ -6,7 +6,6 @@ export default () => {
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand>
-        {" "}
         <Link to="/">React-Bootstrap</Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -19,10 +18,10 @@ export default () => {
             <Link to="/categoria">Categoria</Link>
           </Nav.Link>
           <Nav.Link>
-            <Link to="/">Produto</Link>
+            <Link to="/produto">Produto</Link>
           </Nav.Link>
           <Nav.Link>
-            <Link to="/">Funcionario</Link>
+            <Link to="/funcionario">Funcionario</Link>
           </Nav.Link>
           <Nav.Link>
             <Link to="/cliente">Cliente</Link>

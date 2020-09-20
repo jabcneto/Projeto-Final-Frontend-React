@@ -1,44 +1,44 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import CardCategoria from "../CardCategoria/CardCategoria";
-import FormCategoria from "../FormCategoria/FormCategoria";
+import CardFuncionario from "../CardFuncionario/CardFuncionario";
+import FormFuncionario from "../FormFuncionario/FormFuncionario";
 import { Col, Container, Nav, Row } from "react-bootstrap";
 
-import "./Categoria.css";
-import CardCategoriaEditar from "../CardCategoria/CardCategoriaEditar";
+import "./Funcionario.css";
+import CardFuncionarioEditar from "../CardFuncionario/CardFuncionarioEditar";
 
-function Categoria() {
-  const [categorias, setCategorias] = useState([]);
+function Funcionario() {
+  const [funcionarios, setFuncionarios] = useState([]);
   const [novo, setNovo] = useState(0);
-  const [crudCategoria, setCrudCategoria] = useState("");
+  const [crudFuncionario, setCrudFuncionario] = useState("");
 
   useEffect(() => {
-    async function fetchCategoria() {
+    async function fetchFuncionario() {
       const data = await axios
-        .get("https://api-castor.herokuapp.com/categoria")
+        .get("https://api-castor.herokuapp.com/funcionario")
         .then((res) => res.data);
-
-      setCategorias(data);
+      console.log(data);
+      setFuncionarios(data);
     }
-    fetchCategoria();
+    fetchFuncionario();
   }, [novo]);
 
   useEffect(() => {
-    setCrudCategoria(crudCategoria);
-  }, [crudCategoria]);
+    setCrudFuncionario(crudFuncionario);
+  }, [crudFuncionario]);
 
   return (
     <>
       <Container fluid>
         <Row>
           <Col md="1">
-            <h2 style={{ margin: "10px 0" }}>Categoria</h2>
+            <h2 style={{ margin: "10px 0" }}>Funcionário</h2>
             <Nav.Link defaultActiveKey="/home" className="flex-column">
               <Nav.Link
                 onClick={() =>
-                  setCrudCategoria(
-                    <FormCategoria novo={novo} setNovo={setNovo} />
+                  setCrudFuncionario(
+                    <FormFuncionario novo={novo} setNovo={setNovo} />
                   )
                 }
               >
@@ -46,24 +46,24 @@ function Categoria() {
               </Nav.Link>
               <Nav.Link
                 onClick={() =>
-                  setCrudCategoria(
+                  setCrudFuncionario(
                     <Row>
-                      {categorias.map((categoria) => {
+                      {funcionarios.map((funcionario) => {
                         return (
                           <>
-                            <CardCategoria
-                              key={categoria.id}
-                              categoria={categoria}
+                            <CardFuncionario
+                              key={funcionario.id}
+                              funcionario={funcionario}
                               novo={novo}
                               setNovo={setNovo}
                             />
 
-                            <CardCategoriaEditar
-                              key={categoria.id}
-                              categoria={categoria}
+                            <CardFuncionarioEditar
+                              key={funcionario.id}
+                              funcionario={funcionario}
                               novo={novo}
                               setNovo={setNovo}
-                            />
+                            /> 
                           </>
                         );
                       })}
@@ -77,7 +77,7 @@ function Categoria() {
             </Nav.Link>
           </Col>
           <Col md="2"></Col>
-          <Col md="8">{crudCategoria}</Col>
+          <Col md="8">{crudFuncionario}</Col>
           <Col md="1"></Col>
           <Col md="3"></Col>
           <Col md="7"></Col>
@@ -87,4 +87,4 @@ function Categoria() {
   );
 }
 
-export default Categoria;
+export default Funcionario;

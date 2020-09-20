@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import "./CardCategoria.css";
+import "./CardFuncionario.css";
 import { Button, Card, Container, Form, Row } from "react-bootstrap";
 
-const CardCategoriaEditar = (props) => {
-  const categoria = props.categoria;
+const CardFuncionarioEditar = (props) => {
+  const funcionario = props.funcionario;
   const [nome, setNome] = useState();
-  const [descricao, setDescricao] = useState();
+  const [cpf, setCpf] = useState();
 
   async function editar(id) {
     axios
       .put(
-        `https://api-castor.herokuapp.com/categoria/${id}`,
+        `https://api-castor.herokuapp.com/funcionario/${id}`,
         {
-          id: categoria.id,
+          id: funcionario.id,
           nome: nome,
-          descricao: descricao,
+          cpf: cpf,
         },
         {
           headers: {
@@ -35,16 +35,18 @@ const CardCategoriaEditar = (props) => {
           <Form.Control
             onChange={(nome) => setNome(nome.target.value)}
             type="text"
+            id="nomeFuncionario"
           />
           <Form.Control
-            onChange={(descricao) => setDescricao(descricao.target.value)}
+            onChange={(cpf) => setCpf(cpf.target.value)}
             type="text"
+            id="cpfFuncionario"
           />
         </Card.Body>
         <Container>
           <Row>
             <div className="Botoes">
-              <Button onClick={()=>editar(categoria.id)}>Salvar</Button>
+              <Button onClick={()=>editar(funcionario.id)}>Salvar</Button>
             </div>
           </Row>
         </Container>
@@ -53,4 +55,4 @@ const CardCategoriaEditar = (props) => {
   );
 };
 
-export default CardCategoriaEditar;
+export default CardFuncionarioEditar;
