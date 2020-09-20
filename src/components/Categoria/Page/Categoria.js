@@ -34,7 +34,7 @@ function Categoria() {
         <Row>
           <Col md="1">
             <h2 style={{ margin: "10px 0" }}>Categoria</h2>
-            <Nav.Link defaultActiveKey="/home" className="flex-column">
+            <Nav.Link className="flex-column">
               <Nav.Link
                 onClick={() =>
                   setCrudCategoria(
@@ -71,6 +71,7 @@ function Categoria() {
                   )
                 }
               >
+                
                 Consultar
               </Nav.Link>
               <Nav.Link eventKey="link-2">Editar</Nav.Link>

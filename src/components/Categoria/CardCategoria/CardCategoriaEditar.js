@@ -35,12 +35,10 @@ const CardCategoriaEditar = (props) => {
           <Form.Control
             onChange={(nome) => setNome(nome.target.value)}
             type="text"
-            id="nomeCategoria"
           />
           <Form.Control
             onChange={(descricao) => setDescricao(descricao.target.value)}
             type="text"
-            id="descricaoCategoria"
           />
         </Card.Body>
         <Container>

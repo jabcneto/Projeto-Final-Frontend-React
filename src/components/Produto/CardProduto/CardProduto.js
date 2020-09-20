@@ -1,17 +1,18 @@
 import React from "react";
 import axios from "axios";
 
-import "./CardCategoria.css";
 import { Button, Card, Container, Row } from "react-bootstrap";
 
-const CardCategoria = (props) => {
-  const categoria = props.categoria;
+const CardProduto = (props) => {
+  const produto = props.produto;
   // const [editar, setEditar] = useState();
+
+  console.log(props);
 
   async function deletar(id) {
     axios
       .delete(
-        `https://api-castor.herokuapp.com/categoria/${id}`,
+        `https://api-castor.herokuapp.com/produto/${id}`,
         {},
         {
           headers: {
@@ -22,20 +23,19 @@ const CardCategoria = (props) => {
       )
       .then((res) => console.log(res));
     props.setNovo(props.novo + 1);
-    console.log("clicou");
   }
 
   return (
     <>
       <Card style={{ width: "18rem", margin: "10px" }}>
         <Card.Body>
-          <Card.Title>{categoria.nome}</Card.Title>
-          <Card.Text>{categoria.descricao}</Card.Text>
+          <Card.Title>{produto.nome}</Card.Title>
+          <Card.Text>{produto.descricao}</Card.Text>
         </Card.Body>
         <Container>
           <Row>
             <Button>Editar</Button>
-            <Button onClick={() => deletar(categoria.id)}>Deletar</Button>
+            <Button onClick={() => deletar(produto.id)}>Deletar</Button>
           </Row>
         </Container>
       </Card>
@@ -43,4 +43,4 @@ const CardCategoria = (props) => {
   );
 };
 
-export default CardCategoria;
+export default CardProduto;
