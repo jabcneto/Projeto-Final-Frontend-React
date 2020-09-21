@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Container, FormControl, InputGroup } from "react-bootstrap";
+import { Container, Form, FormControl, InputGroup } from "react-bootstrap";
 import styled, { css } from "styled-components";
 import api from "../../../service/api";
 
@@ -53,110 +53,32 @@ export default (props) => {
     <Container md="auto">
       <div>
         <h2>Novo Produto</h2>
-        <InputGroup
-          className="mb-3"
+        <Form.Group
+          controlId="formNomeProduto"
           onChange={(nome) => setNome(nome.target.value)}
         >
-          <InputGroup.Prepend>
-            <InputGroup.Text id="inputGroup-sizing-default">
-              Nome
-            </InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </InputGroup>
-
-        <InputGroup
-          className="mb-3"
-          onChange={(nomeCategoria) => setNomeCategoria(nomeCategoria.target.value)}
+          <Form.Label>Nome:</Form.Label>
+          <Form.Control type="text" placeholder="Nome do produto" />
+        </Form.Group>
+        
+        <Form.Group
+          controlId="formNomeCategoria"
+          onChange={(categoria) => setNomeCategoria(categoria.target.value)}
         >
-          <InputGroup.Prepend>
-            <InputGroup.Text id="inputGroup-sizing-default">
-              Categoria
-            </InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </InputGroup>
+          <Form.Label>Categoria:</Form.Label>
+          <Form.Control type="text" placeholder="Categoria do produto" />
+        </Form.Group>
 
-        <InputGroup
-          className="mb-3"
+        <Form.Group
+          controlId="formDescricaoProduto"
           onChange={(descricao) => setDescricao(descricao.target.value)}
         >
-          <InputGroup.Prepend>
-            <InputGroup.Text id="inputGroup-sizing-default">
-              Descrição
-            </InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </InputGroup>
+          <Form.Label>Descrição:</Form.Label>
+          <Form.Control type="text" placeholder="Descrição do produto" />
+        </Form.Group>
 
-        <InputGroup
-          className="mb-3"
-          onChange={(qtdEstoque) => setQtdEstoque(qtdEstoque.target.value)}
-        >
-          <InputGroup.Prepend>
-            <InputGroup.Text id="inputGroup-sizing-default">
-              Quantidade em Estoque
-            </InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </InputGroup>
-
-        <InputGroup
-          className="mb-3"
-          onChange={(dataFabricacao) => setDataFabricacao(dataFabricacao.target.value)}
-        >
-          <InputGroup.Prepend>
-            <InputGroup.Text id="inputGroup-sizing-default">
-              Data de Fabricação
-            </InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </InputGroup>
-
-        <InputGroup
-          className="mb-3"
-          onChange={(valor) => setValor(valor.target.value)}
-        >
-          <InputGroup.Prepend>
-            <InputGroup.Text id="inputGroup-sizing-default">
-              Valor
-            </InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </InputGroup>
-
-        <InputGroup
-          className="mb-3"
-          onChange={(nomeFuncionario) => setNomeFuncionario(nomeFuncionario.target.value)}
-        >
-          <InputGroup.Prepend>
-            <InputGroup.Text id="inputGroup-sizing-default">
-              Nome do Funcionário
-            </InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </InputGroup>
+        
+        
         <Button onClick={() => novoProduto()}>Salvar</Button>
       </div>
     </Container>
