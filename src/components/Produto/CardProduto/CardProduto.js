@@ -40,8 +40,13 @@ const CardProduto = (props) => {
             </Col>
             <Col>
               <Card.Body>
-                <Card.Title>{produto.nome}</Card.Title>
-                <Card.Text>{produto.descricao}</Card.Text>
+                <Card.Text>Nome: {produto.nome}</Card.Text>
+                <Card.Text>Categoria: {produto.categoria.nome}</Card.Text>
+                <Card.Text>Descrição: {produto.descricao}</Card.Text>
+                <Card.Text>Quantidade em estoque: {produto.quantidadeEmEstoque}</Card.Text>
+                <Card.Text>Data de fabricação: {produto.dataDeFabricacao}</Card.Text>
+                <Card.Text>Valor: R${produto.valorUnitario}</Card.Text>
+                <Card.Text>Nome do funcionário: {produto.funcionario.nome}</Card.Text>
               </Card.Body>
             </Col>
           </Row>
