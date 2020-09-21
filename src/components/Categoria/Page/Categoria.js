@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import CardCategoria from "../CardCategoria/CardCategoria";
 import FormCategoria from "../FormCategoria/FormCategoria";
-import { Col, Container, Nav, Row } from "react-bootstrap";
+import { Col, Container, Form, Nav, Row } from "react-bootstrap";
 
 import "./Categoria.css";
 import api from "../../../service/api";
@@ -14,9 +14,7 @@ function Categoria() {
 
   useEffect(() => {
     async function fetchCategoria() {
-      const data = await api
-        .get("/categoria")
-        .then((res) => res.data);
+      const data = await api.get("/categoria").then((res) => res.data);
 
       setCategorias(data);
     }
@@ -46,24 +44,29 @@ function Categoria() {
               <Nav.Link
                 onClick={() =>
                   setCrudCategoria(
-                    <Row>
-                      {categorias.map((categoria) => {
-                        return (
-                          <>
-                            <CardCategoria
-                              key={categoria.id}
-                              categoria={categoria}
-                              novo={novo}
-                              setNovo={setNovo}
-                            />
-                          </>
-                        );
-                      })}
-                    </Row>
+                    <>
+                      <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Busca</Form.Label>
+                        <Form.Control type="email" placeholder="Enter email" />
+                      </Form.Group>
+                      <Row>
+                        {categorias.map((categoria) => {
+                          return (
+                            <>
+                              <CardCategoria
+                                key={categoria.id}
+                                categoria={categoria}
+                                novo={novo}
+                                setNovo={setNovo}
+                              />
+                            </>
+                          );
+                        })}
+                      </Row>
+                    </>
                   )
                 }
               >
-                
                 Consultar
               </Nav.Link>
               <Nav.Link eventKey="link-2">Editar</Nav.Link>

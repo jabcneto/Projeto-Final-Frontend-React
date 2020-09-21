@@ -31,12 +31,6 @@ const CardCategoria = (props) => {
           <Card.Title>{categoria.nome}</Card.Title>
           <Card.Text>{categoria.descricao}</Card.Text>
         </Card.Body>
-        <Container>
-          <Row>
-            <Button>Editar</Button>
-            <Button onClick={() => deletar(categoria.id)}>Deletar</Button>
-          </Row>
-        </Container>
       </Card>
     </>
   );
