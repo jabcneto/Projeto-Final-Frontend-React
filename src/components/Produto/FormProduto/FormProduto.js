@@ -5,14 +5,25 @@ import styled, { css } from "styled-components";
 
 export default (props) => {
   const [nome, setNome] = useState("");
+  const [nomeCategoria, setNomeCategoria] = useState("");
   const [descricao, setDescricao] = useState("");
+  const [qtdEstoque, setQtdEstoque] = useState("");
+  const [dataFabricacao, setDataFabricacao] = useState("");
+  const [valor, setValor] = useState("");
+  const [nomeFuncionario, setNomeFuncionario] = useState("");
 
-  async function novaProduto() {
+  async function novoProduto() {
     axios
       .post("https://api-castor.herokuapp.com/produto", {
         id: 0,
         nome: nome,
+        nomeCategoria: nomeCategoria,
         descricao: descricao,
+        qtdEstoque: qtdEstoque,
+        dataFabricacao: dataFabricacao,
+        valor: valor,
+        nomeFuncionario: nomeFuncionario,
+
       })
       .then((res) => {
         props.setNovo(props.novo + 1);
@@ -40,14 +51,14 @@ export default (props) => {
   return (
     <Container md="auto">
       <div>
-      <h2>Nova Categoria</h2>
+        <h2>Novo Produto</h2>
         <InputGroup
           className="mb-3"
           onChange={(nome) => setNome(nome.target.value)}
         >
           <InputGroup.Prepend>
             <InputGroup.Text id="inputGroup-sizing-default">
-              Título
+              Nome
             </InputGroup.Text>
           </InputGroup.Prepend>
           <FormControl
@@ -55,6 +66,22 @@ export default (props) => {
             aria-describedby="inputGroup-sizing-default"
           />
         </InputGroup>
+
+        <InputGroup
+          className="mb-3"
+          onChange={(nomeCategoria) => setNomeCategoria(nomeCategoria.target.value)}
+        >
+          <InputGroup.Prepend>
+            <InputGroup.Text id="inputGroup-sizing-default">
+              Categoria
+            </InputGroup.Text>
+          </InputGroup.Prepend>
+          <FormControl
+            aria-label="Default"
+            aria-describedby="inputGroup-sizing-default"
+          />
+        </InputGroup>
+
         <InputGroup
           className="mb-3"
           onChange={(descricao) => setDescricao(descricao.target.value)}
@@ -69,7 +96,67 @@ export default (props) => {
             aria-describedby="inputGroup-sizing-default"
           />
         </InputGroup>
-        <Button onClick={() => novaProduto()}>Salvar</Button>
+
+        <InputGroup
+          className="mb-3"
+          onChange={(qtdEstoque) => setQtdEstoque(qtdEstoque.target.value)}
+        >
+          <InputGroup.Prepend>
+            <InputGroup.Text id="inputGroup-sizing-default">
+              Quantidade em Estoque
+            </InputGroup.Text>
+          </InputGroup.Prepend>
+          <FormControl
+            aria-label="Default"
+            aria-describedby="inputGroup-sizing-default"
+          />
+        </InputGroup>
+
+        <InputGroup
+          className="mb-3"
+          onChange={(dataFabricacao) => setDataFabricacao(dataFabricacao.target.value)}
+        >
+          <InputGroup.Prepend>
+            <InputGroup.Text id="inputGroup-sizing-default">
+              Data de Fabricação
+            </InputGroup.Text>
+          </InputGroup.Prepend>
+          <FormControl
+            aria-label="Default"
+            aria-describedby="inputGroup-sizing-default"
+          />
+        </InputGroup>
+
+        <InputGroup
+          className="mb-3"
+          onChange={(valor) => setValor(valor.target.value)}
+        >
+          <InputGroup.Prepend>
+            <InputGroup.Text id="inputGroup-sizing-default">
+              Valor
+            </InputGroup.Text>
+          </InputGroup.Prepend>
+          <FormControl
+            aria-label="Default"
+            aria-describedby="inputGroup-sizing-default"
+          />
+        </InputGroup>
+
+        <InputGroup
+          className="mb-3"
+          onChange={(nomeFuncionario) => setNomeFuncionario(nomeFuncionario.target.value)}
+        >
+          <InputGroup.Prepend>
+            <InputGroup.Text id="inputGroup-sizing-default">
+              Nome do Funcionário
+            </InputGroup.Text>
+          </InputGroup.Prepend>
+          <FormControl
+            aria-label="Default"
+            aria-describedby="inputGroup-sizing-default"
+          />
+        </InputGroup>
+        <Button onClick={() => novoProduto()}>Salvar</Button>
       </div>
     </Container>
   );
