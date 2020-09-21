@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Container, FormControl, InputGroup } from "react-bootstrap";
+import { Container, Form, FormControl, InputGroup } from "react-bootstrap";
 import styled, { css } from "styled-components";
+import "./FormCategoria.css";
 
 export default (props) => {
   const [nome, setNome] = useState("");
@@ -40,35 +41,23 @@ export default (props) => {
   return (
     <Container md="auto">
       <div>
-      <h2>Nova Categoria</h2>
-        <InputGroup
-          className="mb-3"
+        <h2>Nova Categoria</h2>
+        <Form.Group
+          controlId="formNomeCategoria"
           onChange={(nome) => setNome(nome.target.value)}
         >
-          <InputGroup.Prepend>
-            <InputGroup.Text id="inputGroup-sizing-default">
-              Título
-            </InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </InputGroup>
-        <InputGroup
-          className="mb-3"
+          <Form.Label>Nome:</Form.Label>
+          <Form.Control type="text" placeholder="nome da categoria" />
+          <Form.Text className="text-muted">{nome}</Form.Text>
+        </Form.Group>
+        <Form.Group
+          controlId="formDescricaoCategoria"
           onChange={(descricao) => setDescricao(descricao.target.value)}
         >
-          <InputGroup.Prepend>
-            <InputGroup.Text id="inputGroup-sizing-default">
-              Descrição
-            </InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </InputGroup>
+          <Form.Label>Descrição:</Form.Label>
+          <Form.Control type="text" placeholder="nome da categoria" />
+          <Form.Text className="text-muted">{descricao}</Form.Text>
+        </Form.Group>
         <Button onClick={() => novaCategoria()}>Salvar</Button>
       </div>
     </Container>
