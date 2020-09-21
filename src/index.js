@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Cliente from "./components/Cliente/Pagina/Cliente";
 import Funcionario from "./components/Funcionario/Pagina/Funcionario";
 import * as serviceWorker from "./serviceWorker";
 
@@ -16,6 +17,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/" exact={true} component={Home} />
         <Route path="/categoria" component={Categoria} />
+        <Route path="/cliente" component={Cliente} />
         <Route path="/produto" component={Produto} />
         <Route path="/funcionario" component={Funcionario} />
       </Switch>
