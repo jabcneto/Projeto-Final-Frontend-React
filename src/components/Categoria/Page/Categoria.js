@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 
 import CardCategoria from "../CardCategoria/CardCategoria";
 import FormCategoria from "../FormCategoria/FormCategoria";
@@ -7,6 +6,7 @@ import { Col, Container, Nav, Row } from "react-bootstrap";
 
 import "./Categoria.css";
 import CardCategoriaEditar from "../CardCategoria/CardCategoriaEditar";
+import api from "../../../service/api";
 
 function Categoria() {
   const [categorias, setCategorias] = useState([]);
@@ -15,8 +15,8 @@ function Categoria() {
 
   useEffect(() => {
     async function fetchCategoria() {
-      const data = await axios
-        .get("https://api-castor.herokuapp.com/categoria")
+      const data = await api
+        .get("/categoria")
         .then((res) => res.data);
 
       setCategorias(data);
@@ -52,13 +52,6 @@ function Categoria() {
                         return (
                           <>
                             <CardCategoria
-                              key={categoria.id}
-                              categoria={categoria}
-                              novo={novo}
-                              setNovo={setNovo}
-                            />
-
-                            <CardCategoriaEditar
                               key={categoria.id}
                               categoria={categoria}
                               novo={novo}

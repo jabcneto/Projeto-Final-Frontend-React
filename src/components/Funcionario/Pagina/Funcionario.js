@@ -57,13 +57,6 @@ function Funcionario() {
                               novo={novo}
                               setNovo={setNovo}
                             />
-
-                            <CardFuncionarioEditar
-                              key={funcionario.id}
-                              funcionario={funcionario}
-                              novo={novo}
-                              setNovo={setNovo}
-                            /> 
                           </>
                         );
                       })}

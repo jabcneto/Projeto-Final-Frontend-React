@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import api from "../../../service/api";
 
 const CardProduto = (props) => {
   const produto = props.produto;
@@ -10,9 +11,9 @@ const CardProduto = (props) => {
   console.log(props);
 
   async function deletar(id) {
-    axios
+    api
       .delete(
-        `https://api-castor.herokuapp.com/produto/${id}`,
+        `/produto/${id}`,
         {},
         {
           headers: {

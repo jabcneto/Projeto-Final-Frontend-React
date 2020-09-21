@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios";
+
 import { Container, FormControl, InputGroup } from "react-bootstrap";
 import styled, { css } from "styled-components";
+import api from "../../../service/api";
 
 export default (props) => {
   const [nome, setNome] = useState("");
@@ -13,8 +14,8 @@ export default (props) => {
   const [nomeFuncionario, setNomeFuncionario] = useState("");
 
   async function novoProduto() {
-    axios
-      .post("https://api-castor.herokuapp.com/produto", {
+    api
+      .post("/produto", {
         id: 0,
         nome: nome,
         nomeCategoria: nomeCategoria,

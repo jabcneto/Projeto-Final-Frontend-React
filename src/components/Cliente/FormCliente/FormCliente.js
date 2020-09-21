@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Container, FormControl, InputGroup } from "react-bootstrap";
 import styled, { css } from "styled-components";
+import api from "../../../service/api";
 
 export default (props) => {
     const [nome, setNome] = useState("");
@@ -28,8 +29,8 @@ export default (props) => {
     }
 
     async function novaCliente() {
-      axios
-        .post("http://residencia-ecommerce.us-east-1.elasticbeanstalk.com/cliente", {
+      api
+        .post("/cliente", {
           id: 0,
           nome: nome,
           cpf: cpf,

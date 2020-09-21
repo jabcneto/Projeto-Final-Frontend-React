@@ -3,6 +3,7 @@ import axios from "axios";
 
 import "./CardCliente.css";
 import { Button, Card, Container, Form, Row } from "react-bootstrap";
+import api from "../../../service/api";
 
 const CardClienteEditar = (props) => {
   const cliente = props.cliente;
@@ -10,9 +11,9 @@ const CardClienteEditar = (props) => {
   const [descricao, setDescricao] = useState();
 
   async function editar(id) {
-    axios
+    api
       .put(
-        `https://api-castor.herokuapp.com/cliente/${id}`,
+        `/cliente/${id}`,
         {
           id: cliente.id,
           nome: nome,
