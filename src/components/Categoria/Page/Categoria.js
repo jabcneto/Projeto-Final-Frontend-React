@@ -5,7 +5,6 @@ import FormCategoria from "../FormCategoria/FormCategoria";
 import { Col, Container, Nav, Row } from "react-bootstrap";
 
 import "./Categoria.css";
-import CardCategoriaEditar from "../CardCategoria/CardCategoriaEditar";
 import api from "../../../service/api";
 
 function Categoria() {
