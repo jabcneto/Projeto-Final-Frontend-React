@@ -48,7 +48,6 @@ export default (props) => {
         >
           <Form.Label>Nome:</Form.Label>
           <Form.Control type="text" placeholder="nome da categoria" />
-          <Form.Text className="text-muted">{nome}</Form.Text>
         </Form.Group>
         <Form.Group
           controlId="formDescricaoCategoria"
@@ -56,7 +55,6 @@ export default (props) => {
         >
           <Form.Label>Descrição:</Form.Label>
           <Form.Control type="text" placeholder="nome da categoria" />
-          <Form.Text className="text-muted">{descricao}</Form.Text>
         </Form.Group>
         <Button onClick={() => novaCategoria()}>Salvar</Button>
       </div>
