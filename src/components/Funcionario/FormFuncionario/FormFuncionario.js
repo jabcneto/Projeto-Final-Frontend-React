@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Container, FormControl, InputGroup } from "react-bootstrap";
+import { Container, Form, FormControl, InputGroup } from "react-bootstrap";
 import styled, { css } from "styled-components";
 
 export default (props) => {
@@ -41,34 +41,20 @@ export default (props) => {
     <Container md="auto">
       <div>
       <h2>Novo Funcionário</h2>
-        <InputGroup
-          className="mb-3"
+      <Form.Group
+          controlId="formNomeFuncionario"
           onChange={(nome) => setNome(nome.target.value)}
         >
-          <InputGroup.Prepend>
-            <InputGroup.Text id="inputGroup-sizing-default">
-              Nome
-            </InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </InputGroup>
-        <InputGroup
-          className="mb-3"
+          <Form.Label>Nome:</Form.Label>
+          <Form.Control type="text" placeholder="Nome do funcionário" />
+        </Form.Group>
+        <Form.Group
+          controlId="formCpfFuncionario"
           onChange={(cpf) => setCpf(cpf.target.value)}
         >
-          <InputGroup.Prepend>
-            <InputGroup.Text id="inputGroup-sizing-default">
-              CPF
-            </InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </InputGroup>
+          <Form.Label>CPF:</Form.Label>
+          <Form.Control type="text" placeholder="CPF do funcionário" />
+        </Form.Group>
         <Button onClick={() => novoFuncionario()}>Salvar</Button>
       </div>
     </Container>

@@ -67,14 +67,15 @@ export default (props) => {
           onChange={(nome) => setNome(nome.target.value)}
         >
           <Form.Label>Nome:</Form.Label>
-          <Form.Control type="text" placeholder="nome da categoria" />
+          <Form.Control type="text" placeholder="Nome da categoria" />
         </Form.Group>
+
         <Form.Group
           controlId="formDescricaoCategoria"
           onChange={(descricao) => setDescricao(descricao.target.value)}
         >
           <Form.Label>Descrição:</Form.Label>
-          <Form.Control type="text" placeholder="descrição da categoria" />
+          <Form.Control type="text" placeholder="Descrição da categoria" />
         </Form.Group>
 
         <Button onClick={() => novaCategoria()}>Salvar</Button>

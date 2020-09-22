@@ -18,7 +18,7 @@ export default () => {
             <Link to="/produto">Produto</Link>
           </Nav.Link>
           <Nav.Link>
-            <Link to="/funcionario">Funcionario</Link>
+            <Link to="/funcionario">Funcionário</Link>
           </Nav.Link>
           <Nav.Link>
             <Link to="/cliente">Cliente</Link>
