@@ -5,9 +5,6 @@ import { Link } from "react-router-dom";
 export default () => {
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand>
-        <Link to="/">React-Bootstrap</Link>
-      </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" className="ml-auto">
         <Nav className="mr-auto">
@@ -21,7 +18,7 @@ export default () => {
             <Link to="/produto">Produto</Link>
           </Nav.Link>
           <Nav.Link>
-            <Link to="/funcionario">Funcionario</Link>
+            <Link to="/funcionario">Funcionário</Link>
           </Nav.Link>
           <Nav.Link>
             <Link to="/cliente">Cliente</Link>

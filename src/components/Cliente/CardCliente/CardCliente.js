@@ -3,15 +3,16 @@ import axios from "axios";
 
 import "./CardCliente.css";
 import { Button, Card, Container, Row } from "react-bootstrap";
+import api from "../../../service/api";
 
 const CardCliente = (props) => {
     const cliente = props.cliente;
     const [editar, setEditar] = useState();
 
     async function deletar(id) {
-        axios
+        api
         .delete(
-        `https://api-castor.herokuapp.com/cliente/${id}`,
+        `/cliente/${id}`,
         {},
         {headers: {
             "Content-Type": "application/json",
@@ -21,7 +22,6 @@ const CardCliente = (props) => {
     )
     .then((res) => console.log(res));
     props.setNovo(props.novo + 1);
-    console.log("clicou");
    }
    return (
     <>

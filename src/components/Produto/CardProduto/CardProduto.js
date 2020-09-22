@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import api from "../../../service/api";
 
 const CardProduto = (props) => {
   const produto = props.produto;
@@ -10,9 +11,9 @@ const CardProduto = (props) => {
   console.log(props);
 
   async function deletar(id) {
-    axios
+    api
       .delete(
-        `https://api-castor.herokuapp.com/produto/${id}`,
+        `/produto/${id}`,
         {},
         {
           headers: {
@@ -39,16 +40,21 @@ const CardProduto = (props) => {
             </Col>
             <Col>
               <Card.Body>
-                <Card.Title>{produto.nome}</Card.Title>
-                <Card.Text>{produto.descricao}</Card.Text>
+                <Card.Text>Nome: {produto.nome}</Card.Text>
+                <Card.Text>Categoria: {produto.categoria.nome}</Card.Text>
+                <Card.Text>Descrição: {produto.descricao}</Card.Text>
+                <Card.Text>Quantidade em estoque: {produto.quantidadeEmEstoque}</Card.Text>
+                <Card.Text>Data de fabricação: {produto.dataDeFabricacao}</Card.Text>
+                <Card.Text>Valor: R${produto.valorUnitario}</Card.Text>
+                <Card.Text>Nome do funcionário: {produto.funcionario.nome}</Card.Text>
               </Card.Body>
             </Col>
           </Row>
         </Container>
         <Container>
           <Row>
-            <Button>Editar</Button>
-            <Button onClick={() => deletar(produto.id)}>Deletar</Button>
+            <Button variant="outline-secondary">Editar</Button>
+            <Button variant="outline-danger" onClick={() => deletar(produto.id)}>Deletar</Button>
           </Row>
         </Container>
       </Card>

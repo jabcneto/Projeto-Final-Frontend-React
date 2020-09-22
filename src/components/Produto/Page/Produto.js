@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 
 import CardProduto from "../CardProduto/CardProduto";
 import FormProduto from "../FormProduto/FormProduto";
 import { Col, Container, Nav, Row } from "react-bootstrap";
 
 import "./Produto.css";
+import api from "../../../service/api";
 
 function Produto() {
   const [produtos, setProdutos] = useState([]);
@@ -14,8 +14,8 @@ function Produto() {
 
   useEffect(() => {
     async function fetchProduto() {
-      const data = await axios
-        .get("https://api-castor.herokuapp.com/produto")
+      const data = await api
+        .get("/produto")
         .then((res) => res.data);
       setProdutos(data);
       console.log(data);

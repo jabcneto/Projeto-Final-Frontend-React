@@ -1,17 +1,15 @@
 import React from "react";
-import axios from "axios";
 
 import "./CardCategoria.css";
-import { Button, Card, Container, Row } from "react-bootstrap";
-
+import { Card } from "react-bootstrap";
+import api from "../../../service/api";
 const CardCategoria = (props) => {
   const categoria = props.categoria;
-  // const [editar, setEditar] = useState();
 
   async function deletar(id) {
-    axios
+    api
       .delete(
-        `https://api-castor.herokuapp.com/categoria/${id}`,
+        `/categoria/${id}`,
         {},
         {
           headers: {
@@ -32,12 +30,6 @@ const CardCategoria = (props) => {
           <Card.Title>{categoria.nome}</Card.Title>
           <Card.Text>{categoria.descricao}</Card.Text>
         </Card.Body>
-        <Container>
-          <Row>
-            <Button>Editar</Button>
-            <Button onClick={() => deletar(categoria.id)}>Deletar</Button>
-          </Row>
-        </Container>
       </Card>
     </>
   );

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { Container, FormControl, InputGroup } from "react-bootstrap";
+import { Container, Form, FormControl, InputGroup } from "react-bootstrap";
 import styled, { css } from "styled-components";
+import "./FormCategoria.css";
+import AlertCadastro from "../../AlertCadastro/AlertCadastro";
+import api from "../../../service/api";
 
 
 const Button = styled.button`
@@ -24,55 +26,68 @@ const Button = styled.button`
 export default (props) => {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
+  const [alert, setAlert] = useState("");
 
-  
-
-  async function novaCategoria() {
-    axios
-      .post("https://api-castor.herokuapp.com/categoria", {
-        id: 0,
+  async function novaCategoria(event) {
+    setAlert("");
+    console.log(event)
+    api
+      .post("/categoria", {
         nome: nome,
         descricao: descricao,
       })
       .then((res) => {
         props.setNovo(props.novo + 1);
         console.log(res);
+
+        if (res.status !== 201) {
+          setAlert(
+            <AlertCadastro
+              titulo={"Erro no cadastro"}
+              mensagem={`Erro no cadastro: status-${res.status}`}
+              cor="danger"
+            />
+          );
+        } else {
+          setAlert(
+            <AlertCadastro
+              titulo={"Categoria cadastrada com sucesso"}
+              mensagem={`A categoria ${nome} foi cadastrada com sucesso.`}
+            />
+          );
+        }
       });
   }
 
   return (
     <Container md="auto">
       <div>
-      <h2>Nova Categoria</h2>
-        <InputGroup
-          className="mb-3"
-          onChange={(nome) => setNome(nome.target.value)}
-        >
-          <InputGroup.Prepend>
-            <InputGroup.Text id="inputGroup-sizing-default">
-              Título
-            </InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </InputGroup>
-        <InputGroup
-          className="mb-3"
-          onChange={(descricao) => setDescricao(descricao.target.value)}
-        >
-          <InputGroup.Prepend>
-            <InputGroup.Text id="inputGroup-sizing-default">
-              Descrição
-            </InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </InputGroup>
-        <Button onClick={() => novaCategoria()}>Salvar</Button>
+        <h2>Nova Categoria</h2>
+        <Form>
+          <Form.Group
+            controlId="formNomeCategoria"
+            onChange={(nome) => setNome(nome.target.value)}
+          >
+            <Form.Label>Nome:</Form.Label>
+            <Form.Control type="text" placeholder="Nome da categoria" />
+          </Form.Group>
+
+          <Form.Group
+            controlId="formDescricaoCategoria"
+            onChange={(descricao) => setDescricao(descricao.target.value)}
+          >
+            <Form.Label>Descrição:</Form.Label>
+            <Form.Control type="text" placeholder="Descrição da categoria" />
+          </Form.Group>
+
+          <Button  type="submit" onClick={(event)=>{
+            event.preventDefault()
+            novaCategoria(event)
+            }}>
+            Salvar
+          </Button>
+          </Form>
+        {alert}
       </div>
     </Container>
   );

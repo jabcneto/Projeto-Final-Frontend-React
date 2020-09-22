@@ -57,13 +57,7 @@ function Cliente() {
                                 novo={novo}
                                 setNovo={setNovo}
                               />
-  
-                              <CardClienteEditar
-                                key={cliente.id}
-                                cliente={cliente}
-                                novo={novo}
-                                setNovo={setNovo}
-                              />
+
                             </>
                           );
                         })}

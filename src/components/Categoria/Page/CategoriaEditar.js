@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
 
+import FormCategoria from "../FormCategoria/FormCategoria";
+import CardCategoriaEditar from "../CardCategoria/CardCategoriaEditar";
 import { Col, Container, Form, Nav, Row } from "react-bootstrap";
 
 import "./Categoria.css";
 import api from "../../../service/api";
 import { Link } from "react-router-dom";
-import FiltroCategoria from "../FiltroCategoria/FiltroCategoria";
-import styled from "styled-components";
 
-function CategoriaConsultar() {
+function CategoriaEditar() {
   const [categorias, setCategorias] = useState([]);
   const [novo, setNovo] = useState(0);
-  const [crudCategoria, setCrudCategoria] = useState("");
-  const [filterText, setFilterText] = useState("");
 
   useEffect(() => {
     async function fetchCategoria() {
@@ -22,10 +20,6 @@ function CategoriaConsultar() {
     }
     fetchCategoria();
   }, [novo]);
-
-  useEffect(() => {
-    setCrudCategoria(crudCategoria);
-  }, [crudCategoria]);
 
   return (
     <>
@@ -46,18 +40,20 @@ function CategoriaConsultar() {
             </Nav.Link>
           </Col>
           <Col md="2"></Col>
-          <Col md="8" style={{justifyContent: 'space-between'}}>
+          <Col md="8">
             <Row>
-              <Input
-                onChange={(filterText) =>
-                  setFilterText(filterText.target.value)
-                }
-                placeholder="Digite o nome da categoria"
-              />
-              <FiltroCategoria
-                categorias={categorias}
-                filterText={filterText}
-              ></FiltroCategoria>
+              {categorias.map((categoria) => {
+                return (
+                  <>
+                    <CardCategoriaEditar
+                      key={categoria.id}
+                      categoria={categoria}
+                      novo={novo}
+                      setNovo={setNovo}
+                    />
+                  </>
+                );
+              })}
             </Row>
           </Col>
           <Col md="1"></Col>
@@ -69,17 +65,4 @@ function CategoriaConsultar() {
   );
 }
 
-const Input = styled.input.attrs((props) => ({
-  type: "text",
-  size: props.size || "1em",
-}))`
-  color: black;
-  font-size: 1.3em;
-  width: 87%;
-  border: 1px solid black;
-  border-radius: 10px;
-  margin: ${(props) => props.size};
-  padding: ${(props) => props.size};
-`;
-
-export default CategoriaConsultar;
+export default CategoriaEditar;
