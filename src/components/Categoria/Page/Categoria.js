@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-import CardCategoria from "../CardCategoria/CardCategoria";
-import FormCategoria from "../FormCategoria/FormCategoria";
 import { Col, Container, Form, Nav, Row } from "react-bootstrap";
 
 import "./Categoria.css";
 import api from "../../../service/api";
 import { Link } from "react-router-dom";
 import FiltroCategoria from "../FiltroCategoria/FiltroCategoria";
+import styled from "styled-components";
 
-function Categoria() {
+function CategoriaConsultar() {
   const [categorias, setCategorias] = useState([]);
   const [novo, setNovo] = useState(0);
   const [crudCategoria, setCrudCategoria] = useState("");
@@ -47,30 +46,18 @@ function Categoria() {
             </Nav.Link>
           </Col>
           <Col md="2"></Col>
-          <Col md="8">
-
-          <Form.Group
-          controlId="formDescricaoCategoria"
-          onChange={(filterText) => setFilterText(filterText.target.value)}
-        >
-          <Form.Label>Busca:</Form.Label>
-          <Form.Control type="text" placeholder="Digite o nome da categoria" />
-        </Form.Group>
+          <Col md="8" style={{justifyContent: 'space-between'}}>
             <Row>
-
-              {/* {categorias.map((categoria) => {
-                return (
-                  <>
-                    <CardCategoria
-                      key={categoria.id}
-                      categoria={categoria}
-                      novo={novo}
-                      setNovo={setNovo}
-                    />
-                  </>
-                );
-              })} */}
-              <FiltroCategoria categorias={categorias} filterText={filterText}></FiltroCategoria>
+              <Input
+                onChange={(filterText) =>
+                  setFilterText(filterText.target.value)
+                }
+                placeholder="Digite o nome da categoria"
+              />
+              <FiltroCategoria
+                categorias={categorias}
+                filterText={filterText}
+              ></FiltroCategoria>
             </Row>
           </Col>
           <Col md="1"></Col>
@@ -82,4 +69,17 @@ function Categoria() {
   );
 }
 
-export default Categoria;
+const Input = styled.input.attrs((props) => ({
+  type: "text",
+  size: props.size || "1em",
+}))`
+  color: black;
+  font-size: 1.3em;
+  width: 87%;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: ${(props) => props.size};
+  padding: ${(props) => props.size};
+`;
+
+export default CategoriaConsultar;

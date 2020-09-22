@@ -32,7 +32,7 @@ const CardCategoriaEditar = (props) => {
           <Card.Text>{categoria.descricao}</Card.Text>
         </Card.Body>
         <Container style={{textAlign: 'center', padding:'0 0 10px '}}>
-          <Link to={`/categoria/editar/${categoria.id}`}>
+          <Link to={`/categoria/editar/${categoria.id}&${categoria.nome}`}>
             <Button variant="outline-secondary">Editar</Button>
           </Link>
           <Button variant="outline-danger" style={{margin: '0 0 0 25px' }} onClick={() => deletar(categoria.id)}>Deletar</Button>
