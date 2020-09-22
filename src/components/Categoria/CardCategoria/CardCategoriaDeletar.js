@@ -7,6 +7,7 @@ import { Link, useParams } from "react-router-dom";
 import api from "../../../service/api";
 
 const CardCategoriaEditar = (props) => {
+  
   const categoria = props.categoria;
   const [nome, setNome] = useState();
   const [descricao, setDescricao] = useState();
@@ -21,7 +22,9 @@ const CardCategoriaEditar = (props) => {
       .then((res) => console.log(res));
   }
   async function deletar(id) {
-    api.delete(`/categoria/${id}`).then((res) => console.log(res));
+    api
+      .delete(`/categoria/${id}`)
+      .then((res) => console.log(res));
   }
 
   return (
@@ -31,11 +34,13 @@ const CardCategoriaEditar = (props) => {
           <Card.Title>{categoria.nome}</Card.Title>
           <Card.Text>{categoria.descricao}</Card.Text>
         </Card.Body>
-        <Container style={{textAlign: 'center', padding:'0 0 10px '}}>
-          <Link to={`/categoria/editar/${categoria.id}`}>
-            <Button variant="outline-secondary">Editar</Button>
-          </Link>
-          <Button variant="outline-danger" style={{margin: '0 0 0 25px' }} onClick={() => deletar(categoria.id)}>Deletar</Button>
+        <Container>
+          <Row>
+            <Link to={`/categoria/editar/${categoria.id}`}>
+              <Button>Editar</Button>
+            </Link>
+            <Button onClick={() => deletar(categoria.id)}>Deletar</Button>
+          </Row>
         </Container>
       </Card>
     </>

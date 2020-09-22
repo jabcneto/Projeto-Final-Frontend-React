@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 
-import CardCategoria from "../CardCategoria/CardCategoria";
 import FormCategoria from "../FormCategoria/FormCategoria";
+import CardCategoriaEditar from "../CardCategoria/CardCategoriaEditar";
 import { Col, Container, Form, Nav, Row } from "react-bootstrap";
 
 import "./Categoria.css";
 import api from "../../../service/api";
 import { Link } from "react-router-dom";
 
-function Categoria() {
+function CategoriaEditar() {
   const [categorias, setCategorias] = useState([]);
   const [novo, setNovo] = useState(0);
-  const [crudCategoria, setCrudCategoria] = useState("");
 
   useEffect(() => {
     async function fetchCategoria() {
@@ -21,10 +20,6 @@ function Categoria() {
     }
     fetchCategoria();
   }, [novo]);
-
-  useEffect(() => {
-    setCrudCategoria(crudCategoria);
-  }, [crudCategoria]);
 
   return (
     <>
@@ -50,7 +45,7 @@ function Categoria() {
               {categorias.map((categoria) => {
                 return (
                   <>
-                    <CardCategoria
+                    <CardCategoriaEditar
                       key={categoria.id}
                       categoria={categoria}
                       novo={novo}
@@ -70,4 +65,4 @@ function Categoria() {
   );
 }
 
-export default Categoria;
+export default CategoriaEditar;

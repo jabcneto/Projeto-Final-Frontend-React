@@ -1,11 +1,10 @@
 import React from "react";
 
 import "./CardCategoria.css";
-import { Button, Card, Container, Row } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import api from "../../../service/api";
 const CardCategoria = (props) => {
   const categoria = props.categoria;
-  // const [editar, setEditar] = useState();
 
   async function deletar(id) {
     api
