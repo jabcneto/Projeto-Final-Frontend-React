@@ -46,31 +46,14 @@ function CategoriaConsultar() {
             </Nav.Link>
           </Col>
           <Col md="2"></Col>
-          <Col md="8">
-          <Input onChange={(filterText) => setFilterText(filterText.target.value)} />
-            {/* <Form.Group
-              controlId="formDescricaoCategoria"
-              onChange={(filterText) => setFilterText(filterText.target.value)}
-            >
-              <Form.Label>Busca:</Form.Label>
-              <Form.Control
-                type="text"
+          <Col md="8" style={{justifyContent: 'space-between'}}>
+            <Row>
+              <Input
+                onChange={(filterText) =>
+                  setFilterText(filterText.target.value)
+                }
                 placeholder="Digite o nome da categoria"
               />
-            </Form.Group> */}
-            <Row>
-              {/* {categorias.map((categoria) => {
-                return (
-                  <>
-                    <CardCategoria
-                      key={categoria.id}
-                      categoria={categoria}
-                      novo={novo}
-                      setNovo={setNovo}
-                    />
-                  </>
-                );
-              })} */}
               <FiltroCategoria
                 categorias={categorias}
                 filterText={filterText}
@@ -91,8 +74,9 @@ const Input = styled.input.attrs((props) => ({
   size: props.size || "1em",
 }))`
   color: black;
-  font-size: 1em;
-  border: 2px solid black;
+  font-size: 1.3em;
+  width: 87%;
+  border: 1px solid black;
   border-radius: 10px;
   margin: ${(props) => props.size};
   padding: ${(props) => props.size};
