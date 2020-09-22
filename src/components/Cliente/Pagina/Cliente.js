@@ -16,7 +16,7 @@ function Cliente() {
     useEffect(() => {
       async function fetchCliente() {
         const data = await axios
-          .get("https://api-castor.herokuapp.com/cliente")
+          .get("http://residencia-ecommerce.us-east-1.elasticbeanstalk.com/swagger-ui.html#/cliente-controller/listarUsingGET_1")
           .then((res) => res.data);
   
         setClientes(data);
