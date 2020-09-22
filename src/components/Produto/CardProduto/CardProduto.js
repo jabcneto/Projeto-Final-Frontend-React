@@ -53,8 +53,8 @@ const CardProduto = (props) => {
         </Container>
         <Container>
           <Row>
-            <Button>Editar</Button>
-            <Button onClick={() => deletar(produto.id)}>Deletar</Button>
+            <Button variant="outline-secondary">Editar</Button>
+            <Button variant="outline-danger" onClick={() => deletar(produto.id)}>Deletar</Button>
           </Row>
         </Container>
       </Card>
