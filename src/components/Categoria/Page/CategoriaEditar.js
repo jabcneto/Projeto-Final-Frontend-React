@@ -29,7 +29,7 @@ function CategoriaEditar() {
             <h2 style={{ margin: "10px 0" }}>Categoria</h2>
             <Nav.Link className="flex-column">
               <Nav.Link>
-                <Link to={'/categoria/adicionar'}>Adicionar</Link>
+                <Link to={"/categoria/adicionar"}>Adicionar</Link>
               </Nav.Link>
               <Nav.Link>
                 <Link to={"/categoria"}>Consultar</Link>
@@ -41,18 +41,20 @@ function CategoriaEditar() {
           </Col>
           <Col md="2"></Col>
           <Col md="8">
-            {categorias.map((categoria) => {
-              return (
-                <>
-                  <CardCategoriaEditar
-                    key={categoria.id}
-                    categoria={categoria}
-                    novo={novo}
-                    setNovo={setNovo}
-                  />
-                </>
-              );
-            })}
+            <Row>
+              {categorias.map((categoria) => {
+                return (
+                  <>
+                    <CardCategoriaEditar
+                      key={categoria.id}
+                      categoria={categoria}
+                      novo={novo}
+                      setNovo={setNovo}
+                    />
+                  </>
+                );
+              })}
+            </Row>
           </Col>
           <Col md="1"></Col>
           <Col md="3"></Col>

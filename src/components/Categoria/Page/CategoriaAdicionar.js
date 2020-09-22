@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import FormCategoria from "../FormCategoria/FormCategoria";
 import { Col, Container, Nav, Row } from "react-bootstrap";
 
 import "./Categoria.css";
 import { Link } from "react-router-dom";
+import CardCategoria from "../CardCategoria/CardCategoria";
 
-function CategoriaAdicionar() {
+function CategoriaAdicionar(props) {
   const [novo, setNovo] = useState(0);
-
+  const categorias = props.categorias;
   return (
     <>
       <Container fluid>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Container, Form, FormControl, InputGroup } from "react-bootstrap";
 import styled, { css } from "styled-components";
@@ -9,13 +9,14 @@ import { useParams } from "react-router-dom";
 export default (props) => {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
-
+  
   const [categoria, setCategoria] = useState();
 
   const { id } = useParams();
 
   async function editar(id) {
-    const data = api.get(`/categoria/${id}`).then((res) => console.log(res));
+    const data = await api.get(`/categoria/${id}`).then((res) => console.log(res.data));
+    
   }
 
   async function editar(id) {
@@ -57,6 +58,7 @@ export default (props) => {
         </Form.Group>
         <Form.Group
           controlId="formDescricaoCategoria"
+          value={categoria.nome}
           onChange={(descricao) => setDescricao(descricao.target.value)}
         >
           <Form.Label>Descrição:</Form.Label>

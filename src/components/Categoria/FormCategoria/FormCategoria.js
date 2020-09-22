@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Container, Form, FormControl, InputGroup } from "react-bootstrap";
 import styled, { css } from "styled-components";
 import "./FormCategoria.css";
@@ -11,11 +10,11 @@ export default (props) => {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [alert, setAlert] = useState("");
+
   async function novaCategoria() {
     setAlert("");
     api
       .post("/categoria", {
-        id: 0,
         nome: nome,
         descricao: descricao,
       })
