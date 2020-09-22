@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Container, Form, FormControl, InputGroup } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import styled, { css } from "styled-components";
 import api from "../../../service/api";
 
@@ -24,7 +24,6 @@ export default (props) => {
         dataFabricacao: dataFabricacao,
         valor: valor,
         nomeFuncionario: nomeFuncionario,
-
       })
       .then((res) => {
         props.setNovo(props.novo + 1);
@@ -60,7 +59,7 @@ export default (props) => {
           <Form.Label>Nome:</Form.Label>
           <Form.Control type="text" placeholder="Nome do produto" />
         </Form.Group>
-        
+
         <Form.Group
           controlId="formNomeCategoria"
           onChange={(categoria) => setNomeCategoria(categoria.target.value)}
@@ -82,15 +81,23 @@ export default (props) => {
           onChange={(qtdEstoque) => setQtdEstoque(qtdEstoque.target.value)}
         >
           <Form.Label>Quantidade em Estoque:</Form.Label>
-          <Form.Control type="text" placeholder="Quantidade em estoque do produto" />
+          <Form.Control
+            type="text"
+            placeholder="Quantidade em estoque do produto"
+          />
         </Form.Group>
 
         <Form.Group
           controlId="formDataFabricacao"
-          onChange={(dataFabricacao) => setDataFabricacao(dataFabricacao.target.value)}
+          onChange={(dataFabricacao) =>
+            setDataFabricacao(dataFabricacao.target.value)
+          }
         >
           <Form.Label>Data de fabricação:</Form.Label>
-          <Form.Control type="text" placeholder="Data de fabricação do produto" />
+          <Form.Control
+            type="text"
+            placeholder="Data de fabricação do produto"
+          />
         </Form.Group>
 
         <Form.Group
@@ -103,13 +110,17 @@ export default (props) => {
 
         <Form.Group
           controlId="formNomeFuncionario"
-          onChange={(nomeFuncionario) => setNomeFuncionario(nomeFuncionario.target.value)}
+          onChange={(nomeFuncionario) =>
+            setNomeFuncionario(nomeFuncionario.target.value)
+          }
         >
           <Form.Label>Nome do funcionário:</Form.Label>
           <Form.Control type="text" placeholder="Nome do funcionário" />
         </Form.Group>
 
-        <h2>Adicione foto 📷</h2>
+        <h2>
+          Adicione foto <span>📷</span>
+        </h2>
         <Button onClick={() => novoProduto()}>Salvar</Button>
       </div>
     </Container>

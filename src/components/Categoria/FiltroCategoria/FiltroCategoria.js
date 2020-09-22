@@ -4,7 +4,6 @@ import { Card } from "react-bootstrap";
 export default ({ categorias, filterText }) => {
   const categoriasList = categorias
     .filter((categoria) => {
-      // remove os nomes que o filtro não combina
       return (
         categoria.nome.toLowerCase().indexOf(filterText.toLowerCase()) >= 0
       );

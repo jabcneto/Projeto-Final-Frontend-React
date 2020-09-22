@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Cliente from "./components/Cliente/Pagina/Cliente";
 import Funcionario from "./components/Funcionario/Pagina/Funcionario";
 import * as serviceWorker from "./serviceWorker";
+import './styles.css'
 
 import Home from "./components/Home/Home";
 import Header from "./components/Header/Header";

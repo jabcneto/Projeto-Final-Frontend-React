@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { Container, Form, FormControl, InputGroup } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import styled, { css } from "styled-components";
 import api from "../../../service/api";
 

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 
 import "./CardCliente.css";
 import { Button, Card, Container, Row } from "react-bootstrap";
@@ -7,7 +6,6 @@ import api from "../../../service/api";
 
 const CardCliente = (props) => {
     const cliente = props.cliente;
-    const [editar, setEditar] = useState();
 
     async function deletar(id) {
         api

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import FormCategoria from "../FormCategoria/FormCategoria";
 import CardCategoriaEditar from "../CardCategoria/CardCategoriaEditar";
-import { Col, Container, Form, Nav, Row } from "react-bootstrap";
+import { Col, Container, Nav, Row } from "react-bootstrap";
 
 import "./Categoria.css";
 import api from "../../../service/api";
 import { Link } from "react-router-dom";
+import MenuLateralCategoria from "../MenuLateralCategoria/MenuLateralCategoria";
 
 function CategoriaEditar() {
   const [categorias, setCategorias] = useState([]);
@@ -25,22 +25,11 @@ function CategoriaEditar() {
     <>
       <Container fluid>
         <Row>
-          <Col md="1">
-            <h2 style={{ margin: "10px 0" }}>Categoria</h2>
-            <Nav.Link className="flex-column">
-              <Nav.Link>
-                <Link to={"/categoria/adicionar"}>Adicionar</Link>
-              </Nav.Link>
-              <Nav.Link>
-                <Link to={"/categoria"}>Consultar</Link>
-              </Nav.Link>
-              <Nav.Link>
-                <Link to={"/categoria/editar"}>Editar</Link>
-              </Nav.Link>
-            </Nav.Link>
+          <Col md={2}>
+            <MenuLateralCategoria />
           </Col>
-          <Col md="2"></Col>
-          <Col md="8">
+          <Col md={1}></Col>
+          <Col md={8} style={{ marginTop: "1rem" }}>
             <Row>
               {categorias.map((categoria) => {
                 return (
@@ -56,9 +45,6 @@ function CategoriaEditar() {
               })}
             </Row>
           </Col>
-          <Col md="1"></Col>
-          <Col md="3"></Col>
-          <Col md="7"></Col>
         </Row>
       </Container>
     </>

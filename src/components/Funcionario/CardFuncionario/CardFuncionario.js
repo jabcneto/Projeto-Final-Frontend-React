@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 
 import "./CardFuncionario.css";
 import { Button, Card, Container, Row } from "react-bootstrap";
@@ -7,7 +6,6 @@ import api from "../../../service/api";
 
 const CardFuncionario = (props) => {
   const funcionario = props.funcionario;
-  // const [editar, setEditar] = useState();
 
   async function deletar(id) {
     api

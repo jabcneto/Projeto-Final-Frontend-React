@@ -6,7 +6,6 @@ import FormFuncionario from "../FormFuncionario/FormFuncionario";
 import { Col, Container, Nav, Row } from "react-bootstrap";
 
 import "./Funcionario.css";
-import CardFuncionarioEditar from "../CardFuncionario/CardFuncionarioEditar";
 
 function Funcionario() {
   const [funcionarios, setFuncionarios] = useState([]);

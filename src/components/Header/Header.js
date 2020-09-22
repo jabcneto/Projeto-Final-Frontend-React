@@ -1,31 +1,25 @@
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import './Header.css'
 
 export default () => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="dark" expand="lg">
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" className="ml-auto">
         <Nav className="mr-auto">
-          <Nav.Link>
-            <Link to="/">Home</Link>
-          </Nav.Link>
-          <Nav.Link>
-            <Link to="/categoria">Categoria</Link>
-          </Nav.Link>
-          <Nav.Link>
-            <Link to="/produto">Produto</Link>
-          </Nav.Link>
-          <Nav.Link>
-            <Link to="/funcionario">Funcionário</Link>
-          </Nav.Link>
-          <Nav.Link>
-            <Link to="/cliente">Cliente</Link>
-          </Nav.Link>
-          <Nav.Link>
-            <Link to="/">Pedido</Link>
-          </Nav.Link>
+          <Link className='link' to="/">Home</Link>
+
+          <Link className='link' to="/categoria">Categoria</Link>
+
+          <Link className='link' to="/produto">Produto</Link>
+
+          <Link className='link' to="/funcionario">Funcionário</Link>
+
+          <Link className='link' to="/cliente">Cliente</Link>
+
+          <Link className='link' to="/">Pedido</Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

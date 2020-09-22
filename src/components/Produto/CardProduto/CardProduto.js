@@ -1,12 +1,10 @@
 import React from "react";
-import axios from "axios";
 
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import api from "../../../service/api";
 
 const CardProduto = (props) => {
   const produto = props.produto;
-  // const [editar, setEditar] = useState();
 
   console.log(props);
 

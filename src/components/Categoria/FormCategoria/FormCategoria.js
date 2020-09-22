@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { Container, Form, FormControl, InputGroup } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import styled, { css } from "styled-components";
 import "./FormCategoria.css";
-import AlertCadastro from "../../AlertCadastro/AlertCadastro";
 import api from "../../../service/api";
-
 
 const Button = styled.button`
   background: transparent;
@@ -26,11 +24,8 @@ const Button = styled.button`
 export default (props) => {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
-  const [alert, setAlert] = useState("");
 
   async function novaCategoria(event) {
-    setAlert("");
-    console.log(event)
     api
       .post("/categoria", {
         nome: nome,
@@ -39,23 +34,6 @@ export default (props) => {
       .then((res) => {
         props.setNovo(props.novo + 1);
         console.log(res);
-
-        if (res.status !== 201) {
-          setAlert(
-            <AlertCadastro
-              titulo={"Erro no cadastro"}
-              mensagem={`Erro no cadastro: status-${res.status}`}
-              cor="danger"
-            />
-          );
-        } else {
-          setAlert(
-            <AlertCadastro
-              titulo={"Categoria cadastrada com sucesso"}
-              mensagem={`A categoria ${nome} foi cadastrada com sucesso.`}
-            />
-          );
-        }
       });
   }
 
@@ -63,7 +41,7 @@ export default (props) => {
     <Container md="auto">
       <div>
         <h2>Nova Categoria</h2>
-        <Form>
+        <form>
           <Form.Group
             controlId="formNomeCategoria"
             onChange={(nome) => setNome(nome.target.value)}
@@ -80,14 +58,15 @@ export default (props) => {
             <Form.Control type="text" placeholder="Descrição da categoria" />
           </Form.Group>
 
-          <Button  type="submit" onClick={(event)=>{
-            event.preventDefault()
-            novaCategoria(event)
-            }}>
+          <Button
+            type="submit"
+            onClick={(event) => {
+              novaCategoria(event);
+            }}
+          >
             Salvar
           </Button>
-          </Form>
-        {alert}
+        </form>
       </div>
     </Container>
   );

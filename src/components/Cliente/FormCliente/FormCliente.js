@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Container, FormControl, InputGroup } from "react-bootstrap";
 import styled, { css } from "styled-components";
-import api from "../../../service/api";
 
 const Button = styled.button`
     background: transparent;
