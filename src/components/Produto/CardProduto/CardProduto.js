@@ -54,7 +54,7 @@ const CardProduto = (props) => {
         <Container>
           <Row>
             <Button variant="outline-secondary">Editar</Button>
-            <Button variant="outline-danger" onClick={() => deletar(produto.id)}>Deletar</Button>
+            <Button style={{margin: '0 15px 0 0' }} variant="outline-danger" onClick={() => deletar(produto.id)}>Deletar</Button>
           </Row>
         </Container>
       </Card>
