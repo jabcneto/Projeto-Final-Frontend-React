@@ -13,6 +13,7 @@ import Produto from "./components/Produto/Page/Produto";
 import CategoriaEditar from "./components/Categoria/Page/CategoriaEditar";
 import CategoriaAdicionar from "./components/Categoria/Page/CategoriaAdicionar";
 import FormCategoriaEditar from "./components/Categoria/FormCategoria/FormCategoriaEditar";
+import CategoriaConsultar from "./components/Categoria/Page/CategoriaConsultar";
 
 ReactDOM.render(
   <>
@@ -21,6 +22,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/" exact={true} component={Home} />
         <Route path="/categoria" exact={true} component={Categoria} />
+        <Route path="/categoria/consultar" exact={true} component={CategoriaConsultar} />
         <Route
           path="/categoria/adicionar"
           exact={true}

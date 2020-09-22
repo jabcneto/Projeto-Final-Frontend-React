@@ -39,11 +39,12 @@ export default (props) => {
   }, []);
 
   async function editar(id) {
-    api
+    console.log("EU sou muito BOM!");
+    await api
       .put(`/categoria/${id}`, {
-        id: id,
-        nome: nome,
-        descricao: descricao,
+        id,
+        nome,
+        descricao,
       })
       .then((res) => {
         console.log(res);
@@ -63,7 +64,9 @@ export default (props) => {
             <h2>Editar Categoria: id-{id}</h2>
             <Form.Group
               controlId="formNomeCategoria"
-              onChange={(nome) => setNome(nome.target.value)}
+              onChange={(nome) => {
+                setNome(nome.target.value);
+              }}
             >
               <Form.Label>Nome:</Form.Label>
               <Form.Control
@@ -79,8 +82,8 @@ export default (props) => {
               <Form.Label>Descrição:</Form.Label>
               <Form.Control type="text" placeholder="nome da categoria" />
             </Form.Group>
-            <Button onClick={() => editar(id)}>Salvar</Button>
           </form>
+          <Button onClick={() => editar(id)}>Salvar</Button>
         </Col>
       </Row>
     </Container>

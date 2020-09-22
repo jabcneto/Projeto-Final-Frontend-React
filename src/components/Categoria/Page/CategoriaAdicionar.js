@@ -4,10 +4,9 @@ import FormCategoria from "../FormCategoria/FormCategoria";
 import { Col, Container, Row } from "react-bootstrap";
 
 import "./Categoria.css";
-import { Link } from "react-router-dom";
 import MenuLateralCategoria from "../MenuLateralCategoria/MenuLateralCategoria";
 
-function CategoriaAdicionar(props) {
+function CategoriaAdicionar() {
   const [novo, setNovo] = useState(0);
   return (
     <>

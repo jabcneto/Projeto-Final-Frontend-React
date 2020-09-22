@@ -5,7 +5,6 @@ import { Col, Container, Nav, Row } from "react-bootstrap";
 
 import "./Categoria.css";
 import api from "../../../service/api";
-import { Link } from "react-router-dom";
 import MenuLateralCategoria from "../MenuLateralCategoria/MenuLateralCategoria";
 
 function CategoriaEditar() {

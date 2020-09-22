@@ -17,7 +17,7 @@ export default (props) => {
         <div style={{display: "block", alignItems: "center" , textAlign: "center", justifyContent: "flex-start"}}>
         <H2>Categoria</H2>
             <Link style={{display: "block", marginBottom: '1rem', textAlign: "center", color:'#343A40', fontSize: '1.3rem'}} to={"/categoria/adicionar"}>Adicionar</Link>
-            <Link style={{display: "block", marginBottom: '1rem', textAlign: "center", color:'#343A40', fontSize: '1.3rem'}} to={"/categoria"}>Consultar</Link>
+            <Link style={{display: "block", marginBottom: '1rem', textAlign: "center", color:'#343A40', fontSize: '1.3rem'}} to={"/categoria/consultar"}>Consultar</Link>
             <Link style={{display: "block", marginBottom: '1rem', textAlign: "center", color:'#343A40', fontSize: '1.3rem'}} to={"/categoria/editar"}>Editar</Link>
         </div>
       </Col>

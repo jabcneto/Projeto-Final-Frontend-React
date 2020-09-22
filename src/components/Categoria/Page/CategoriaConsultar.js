@@ -21,7 +21,7 @@ const Input = styled.input.attrs((props) => ({
   padding: ${(props) => props.size};
 `;
 
-function Categoria() {
+function CategoriaConsultar() {
   const [categorias, setCategorias] = useState([]);
   const [novo, setNovo] = useState(0);
   const [filterText, setFilterText] = useState("");
@@ -45,6 +45,12 @@ function Categoria() {
           <Col md={1}></Col>
           <Col md={8} style={{ marginTop: "1rem" }}>
             <Row>
+              <Input
+                onChange={(filterText) =>
+                  setFilterText(filterText.target.value)
+                }
+                placeholder="Digite o nome da categoria"
+              />
               <FiltroCategoria
                 categorias={categorias}
                 filterText={filterText}
@@ -57,4 +63,4 @@ function Categoria() {
   );
 }
 
-export default Categoria;
+export default CategoriaConsultar;
