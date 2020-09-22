@@ -16,7 +16,7 @@ function CategoriaAdicionar() {
             <MenuLateralCategoria />
           </Col>
           <Col md={1}></Col>
-          <Col md={8} style={{ marginTop: "1rem" }}>
+          <Col md={8} style={{ margin: "1.5rem 0" }}>
             <FormCategoria novo={novo} setNovo={setNovo} />
           </Col>
         </Row>

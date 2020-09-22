@@ -28,7 +28,7 @@ function CategoriaEditar() {
             <MenuLateralCategoria />
           </Col>
           <Col md={1}></Col>
-          <Col md={8} style={{ marginTop: "1rem" }}>
+          <Col md={8} style={{ marginTop: "1.5rem" }}>
             <Row>
               {categorias.map((categoria) => {
                 return (

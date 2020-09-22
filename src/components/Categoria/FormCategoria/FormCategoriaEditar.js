@@ -9,8 +9,8 @@ import MenuLateralCategoria from "../MenuLateralCategoria/MenuLateralCategoria";
 const Button = styled.button`
   background: transparent;
   border-radius: 3px;
-  border: 2px solid #507bff;
-  color: #507bff;
+  border: 2px solid #343a40;
+  color: #343a40;
   float: right;
   margin: 0 1em;
   padding: 0.25em 1em;
@@ -23,20 +23,23 @@ const Button = styled.button`
     `};
 `;
 
-export default (props) => {
+export default () => {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
-  const [categoria, setCategoria] = useState([]);
 
   const { id } = useParams();
 
   useEffect(() => {
     async function buscarPorId(id) {
-      const data = api.get(`/categoria/${id}`).then((res) => console.log(res));
-      setCategoria(data);
+      const data = await api.get(`/categoria/${id}`).then((res) => res.data);
+      setNome(data.nome);
+      setDescricao(data.descricao);
     }
     buscarPorId(id);
+    console.log(nome);
   }, []);
+
+  console.log(nome);
 
   async function editar(id) {
     console.log("EU sou muito BOM!");
@@ -59,9 +62,11 @@ export default (props) => {
           <MenuLateralCategoria />
         </Col>
         <Col md={1}></Col>
-        <Col md={8}>
+        <Col style={{ marginTop: "1.6rem" }} md={8}>
           <form>
-            <h2>Editar Categoria: id-{id}</h2>
+            <h2>
+              Editar Categoria: {nome} - {descricao}{" "}
+            </h2>
             <Form.Group
               controlId="formNomeCategoria"
               onChange={(nome) => {
@@ -69,11 +74,7 @@ export default (props) => {
               }}
             >
               <Form.Label>Nome:</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="nome da categoria"
-                value={categoria.nome}
-              />
+              <Form.Control type="text" placeholder="nome da categoria" />
             </Form.Group>
             <Form.Group
               controlId="formDescricaoCategoria"
