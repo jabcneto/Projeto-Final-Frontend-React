@@ -109,7 +109,7 @@ export default (props) => {
           <Form.Control type="text" placeholder="Nome do funcionário" />
         </Form.Group>
 
-        <h2>ADICIONAR FOTO</h2>
+        <h2>Adicione foto 📷</h2>
         <Button onClick={() => novoProduto()}>Salvar</Button>
       </div>
     </Container>
