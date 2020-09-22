@@ -3,6 +3,7 @@ import axios from "axios";
 
 import "./CardProduto.css";
 import { Button, Card, Container, Form, Row } from "react-bootstrap";
+import api from "../../../service/api";
 
 const CardProdutoEditar = (props) => {
   const categoria = props.categoria;
@@ -15,9 +16,9 @@ const CardProdutoEditar = (props) => {
   const [nomeFuncionario, setNomeFuncionario] = useState("");
     
   async function editar(id) {
-    axios
+    api
       .put(
-        `https://api-castor.herokuapp.com/categoria/${id}`,
+        `/categoria/${id}`,
         {
           id: categoria.id,
           nome: nome,

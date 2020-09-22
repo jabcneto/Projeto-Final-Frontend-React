@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Container, Form, FormControl, InputGroup } from "react-bootstrap";
 import styled, { css } from "styled-components";
+import api from "../../../service/api";
 
 export default (props) => {
   const [nome, setNome] = useState("");
   const [cpf, setCpf] = useState("");
 
   async function novoFuncionario() {
-    axios
-      .post("https://api-castor.herokuapp.com/funcionario", {
+    api
+      .post("/funcionario", {
         id: 0,
         nome: nome,
         cpf: cpf,
