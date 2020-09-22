@@ -45,7 +45,6 @@ export default (props) => {
     "rua" : rua,
   }
 
-<<<<<<< HEAD
   async function novaCliente() {
     var variavel
     var cliente = {
@@ -55,23 +54,6 @@ export default (props) => {
       "usuario": usuario,
       "dataNascimento": nascimento,
       "endereco": enderecoC
-=======
-    async function novaCliente() {
-      api
-        .post("/cliente", {
-          id: 0,
-          nome: nome,
-          cpf: cpf,
-          email: email,
-          usuario: usuario,
-          //nascimento: nascimento,
-          enderecoC: enderecoC,
-        })
-        .then((res) => {
-          props.setNovo(props.novo + 1);
-          console.log(res);
-        });
->>>>>>> a4a20f604e1bb2ac2955a77008f79ecdce6018ef
     }
     console.log(cliente);
     axios
