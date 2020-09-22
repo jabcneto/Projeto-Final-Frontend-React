@@ -77,8 +77,39 @@ export default (props) => {
           <Form.Control type="text" placeholder="Descrição do produto" />
         </Form.Group>
 
-        
-        
+        <Form.Group
+          controlId="formQtdEstoque"
+          onChange={(qtdEstoque) => setQtdEstoque(qtdEstoque.target.value)}
+        >
+          <Form.Label>Quantidade em Estoque:</Form.Label>
+          <Form.Control type="text" placeholder="Quantidade em estoque do produto" />
+        </Form.Group>
+
+        <Form.Group
+          controlId="formDataFabricacao"
+          onChange={(dataFabricacao) => setDataFabricacao(dataFabricacao.target.value)}
+        >
+          <Form.Label>Data de fabricação:</Form.Label>
+          <Form.Control type="text" placeholder="Data de fabricação do produto" />
+        </Form.Group>
+
+        <Form.Group
+          controlId="formValor"
+          onChange={(valor) => setValor(valor.target.value)}
+        >
+          <Form.Label>Valor (R$):</Form.Label>
+          <Form.Control type="text" placeholder="Valor do produto" />
+        </Form.Group>
+
+        <Form.Group
+          controlId="formNomeFuncionario"
+          onChange={(nomeFuncionario) => setNomeFuncionario(nomeFuncionario.target.value)}
+        >
+          <Form.Label>Nome do funcionário:</Form.Label>
+          <Form.Control type="text" placeholder="Nome do funcionário" />
+        </Form.Group>
+
+        <h2>ADICIONAR FOTO</h2>
         <Button onClick={() => novoProduto()}>Salvar</Button>
       </div>
     </Container>
