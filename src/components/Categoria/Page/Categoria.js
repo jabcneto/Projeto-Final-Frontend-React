@@ -7,11 +7,13 @@ import { Col, Container, Form, Nav, Row } from "react-bootstrap";
 import "./Categoria.css";
 import api from "../../../service/api";
 import { Link } from "react-router-dom";
+import FiltroCategoria from "../FiltroCategoria/FiltroCategoria";
 
 function Categoria() {
   const [categorias, setCategorias] = useState([]);
   const [novo, setNovo] = useState(0);
   const [crudCategoria, setCrudCategoria] = useState("");
+  const [filterText, setFilterText] = useState("");
 
   useEffect(() => {
     async function fetchCategoria() {
@@ -46,8 +48,17 @@ function Categoria() {
           </Col>
           <Col md="2"></Col>
           <Col md="8">
+
+          <Form.Group
+          controlId="formDescricaoCategoria"
+          onChange={(filterText) => setFilterText(filterText.target.value)}
+        >
+          <Form.Label>Busca:</Form.Label>
+          <Form.Control type="text" placeholder="Digite o nome da categoria" />
+        </Form.Group>
             <Row>
-              {categorias.map((categoria) => {
+
+              {/* {categorias.map((categoria) => {
                 return (
                   <>
                     <CardCategoria
@@ -58,7 +69,8 @@ function Categoria() {
                     />
                   </>
                 );
-              })}
+              })} */}
+              <FiltroCategoria categorias={categorias} filterText={filterText}></FiltroCategoria>
             </Row>
           </Col>
           <Col md="1"></Col>
