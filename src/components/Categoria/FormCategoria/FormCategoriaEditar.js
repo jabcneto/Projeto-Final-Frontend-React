@@ -26,23 +26,25 @@ const Button = styled.button`
 export default () => {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
-
+  const [categoria, setCategoria] =useState([])
   const { id } = useParams();
 
   useEffect(() => {
     async function buscarPorId(id) {
       const data = await api.get(`/categoria/${id}`).then((res) => res.data);
-      setNome(data.nome);
-      setDescricao(data.descricao);
+      console.log(data)
+      
+      document.getElementById('formNomeCategoria').value = data.nome
+      document.getElementById('formDescricaoCategoria').value = data.descricao
     }
     buscarPorId(id);
-    console.log(nome);
+
   }, []);
 
-  console.log(nome);
+  
+  
 
   async function editar(id) {
-    console.log("EU sou muito BOM!");
     await api
       .put(`/categoria/${id}`, {
         id,
@@ -65,7 +67,7 @@ export default () => {
         <Col style={{ marginTop: "1.6rem" }} md={8}>
           <form>
             <h2>
-              Editar Categoria: {nome} - {descricao}{" "}
+              Editar Categoria: 
             </h2>
             <Form.Group
               controlId="formNomeCategoria"
@@ -76,6 +78,7 @@ export default () => {
               <Form.Label>Nome:</Form.Label>
               <Form.Control type="text" placeholder="nome da categoria" />
             </Form.Group>
+
             <Form.Group
               controlId="formDescricaoCategoria"
               onChange={(descricao) => setDescricao(descricao.target.value)}

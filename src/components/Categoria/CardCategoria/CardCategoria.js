@@ -2,26 +2,9 @@ import React from "react";
 
 import "./CardCategoria.css";
 import { Card } from "react-bootstrap";
-import api from "../../../service/api";
+
 const CardCategoria = (props) => {
   const categoria = props.categoria;
-
-  async function deletar(id) {
-    api
-      .delete(
-        `/categoria/${id}`,
-        {},
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
-        }
-      )
-      .then((res) => console.log(res));
-    props.setNovo(props.novo + 1);
-    console.log("clicou");
-  }
 
   return (
     <>
