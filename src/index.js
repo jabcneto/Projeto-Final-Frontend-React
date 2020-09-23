@@ -25,8 +25,8 @@ const Footer = styled.div`
   border-radius: 3px;
   width: 100%;
   padding: 1.24em;
-  position: relative;
-  bottom: 0px;
+  position: sticky;
+  bottom: -1550px;
 
   ${(props) =>
     props.primary &&
