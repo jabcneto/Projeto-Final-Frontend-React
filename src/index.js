@@ -17,6 +17,7 @@ import CategoriaConsultar from "./components/Categoria/Page/CategoriaConsultar";
 
 import styled, { css } from "styled-components";
 import { Nav, Navbar } from "react-bootstrap";
+import FormCategoriaDeletar from "./components/Categoria/FormCategoria/FormCategoriaDeletar";
 
 const Footer = styled.div`
   margin: 2em 0 0;
@@ -62,6 +63,11 @@ ReactDOM.render(
           path="/categoria/editar/:id"
           exact={true}
           component={FormCategoriaEditar}
+        />
+        <Route
+          path="/categoria/deletar/:id"
+          exact={true}
+          component={FormCategoriaDeletar}
         />
         <Route path="/cliente" component={Cliente} />
         <Route path="/produto" component={Produto} />

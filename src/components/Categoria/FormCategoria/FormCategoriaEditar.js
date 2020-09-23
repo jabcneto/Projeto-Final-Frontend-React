@@ -26,7 +26,6 @@ const Button = styled.button`
 export default () => {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
-  const [categoria, setCategoria] =useState([])
   const { id } = useParams();
 
   useEffect(() => {
@@ -40,9 +39,6 @@ export default () => {
     buscarPorId(id);
 
   }, []);
-
-  
-  
 
   async function editar(id) {
     await api
