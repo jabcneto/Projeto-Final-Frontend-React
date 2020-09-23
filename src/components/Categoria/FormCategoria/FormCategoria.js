@@ -21,7 +21,7 @@ const Button = styled.button`
     `};
 `;
 
-export default (props) => {
+export default () => {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
 
@@ -34,6 +34,8 @@ export default (props) => {
       .then(async (res) => {
         await alert("Categoria adicionada com sucesso!");
         console.log(res);
+        document.getElementById("formNomeCategoria").value = "";
+        document.getElementById("formDescricaoCategoria").value = "";
       });
   }
 
