@@ -1,3 +1,12 @@
 .input {
-    text-align: center;
+  text-align: center;
+}
+
+.btnConfirmar{
+    transition: .25s;
+}
+
+.btnConfirmar:hover {
+  color: #daffcb;
+  background: #6cdc00;
 }

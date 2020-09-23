@@ -5,10 +5,22 @@ import api from "../../../service/api";
 import { Link, useParams, Redirect } from "react-router-dom";
 import MenuLateralCategoria from "../MenuLateralCategoria/MenuLateralCategoria";
 import CardCategoria from "../CardCategoria/CardCategoria";
+import styled from "styled-components";
+
+const ButtonConfirmar = styled.button`
+  background: transparent;
+  border-radius: 3px;
+  border: 1px solid #6cdc00;
+  color: #6cdc00;
+  float: right;
+  margin: 0 1em;
+  padding: 0.39em 1em;
+`;
 
 export default () => {
   const { id } = useParams();
   const [categoria, setCategoria] = useState([]);
+  const [redirect, setRedirect] = useState("");
 
   useEffect(() => {
     async function buscarPorId(id) {
@@ -22,7 +34,7 @@ export default () => {
     await api.delete(`/categoria/${id}`).then((res) => {
       console.log(res);
       alert(`Categoria Removida com sucesso!`);
-      return <Redirect to={`/categoria/editar`} />;
+      setRedirect(<Redirect to={`/categoria/editar`} />);
     });
   }
 
@@ -35,9 +47,9 @@ export default () => {
         <Col md={1}></Col>
         <Col style={{ marginTop: "1.6rem" }} md={8}>
           <CardCategoria categoria={categoria}>
-            <Button onClick={() => deletar(id)} variant="outline-danger">
+            <ButtonConfirmar className={'btnConfirmar'} onClick={() => deletar(id)} variant="outline-danger">
               Confirmar
-            </Button>
+            </ButtonConfirmar>
             <Link to={`/categoria/editar`}>
               <Button
                 variant="outline-secondary"
@@ -49,6 +61,7 @@ export default () => {
           </CardCategoria>
         </Col>
       </Row>
+      {redirect}
     </Container>
   );
 };
