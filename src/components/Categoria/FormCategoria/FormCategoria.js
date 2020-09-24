@@ -12,13 +12,6 @@ const Button = styled.button`
   float: right;
   margin: 0 1em;
   padding: 0.25em 1em;
-
-  ${(props) =>
-    props.primary &&
-    css`
-      background: palevioletred;
-      color: white;
-    `};
 `;
 
 export default () => {

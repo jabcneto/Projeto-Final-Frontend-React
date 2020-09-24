@@ -9,17 +9,17 @@ export default () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" className="ml-auto">
         <Nav className="mr-auto">
-          <Link className='link' to="/">Home</Link>
+          <Link className='link'>Home</Link>
 
           <Link className='link' to="/categoria">Categoria</Link>
 
-          <Link className='link' to="/produto">Produto</Link>
+          <Link className='link'>Produto</Link>
 
-          <Link className='link' to="/funcionario">Funcionário</Link>
+          <Link className='link'>Funcionário</Link>
 
-          <Link className='link' to="/cliente">Cliente</Link>
+          <Link className='link'>Cliente</Link>
 
-          <Link className='link' to="/">Pedido</Link>
+          <Link className='link'>Pedido</Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

@@ -3,7 +3,7 @@ import { Col, Container, Form, Row } from "react-bootstrap";
 import styled, { css } from "styled-components";
 import "./FormCategoria.css";
 import api from "../../../service/api";
-import { useParams } from "react-router-dom";
+import { Link, Redirect, useParams } from "react-router-dom";
 import MenuLateralCategoria from "../MenuLateralCategoria/MenuLateralCategoria";
 
 const Button = styled.button`
@@ -24,8 +24,9 @@ const Button = styled.button`
 `;
 
 export default () => {
-  const [nome, setNome] = useState();
-  const [descricao, setDescricao] = useState();
+  const [nome, setNome] = useState("");
+  const [descricao, setDescricao] = useState("");
+  const [redirect, setRedirect] = useState("");
 
   const { id } = useParams();
 
@@ -33,7 +34,8 @@ export default () => {
     async function buscarPorId(id) {
       const data = await api.get(`/categoria/${id}`).then((res) => res.data);
       console.log(data);
-
+      setNome(data.nome);
+      setDescricao(data.descricao);
       document.getElementById("formNomeCategoria").value = data.nome;
       document.getElementById("formDescricaoCategoria").value = data.descricao;
     }
@@ -49,13 +51,13 @@ export default () => {
         descricao,
       })
       .then((res) => {
-        console.log(res);
         alert(`Categoria editada com sucesso!`);
+        setRedirect(<Redirect to={`/categoria/editar`} />);
       });
   }
 
   return (
-    <Container fluid md="auto">
+    <Container fluid md="auto" style={{ minHeight: "75vh" }}>
       <Row>
         <Col md={2}>
           <MenuLateralCategoria />
@@ -82,9 +84,19 @@ export default () => {
               <Form.Control type="text" placeholder="descricao da categoria" />
             </Form.Group>
           </form>
-          <Button onClick={() =>{
-            editar(id)}}>Salvar</Button>
+          <Button
+            onClick={() => {
+              console.log(nome, descricao);
+              editar(id);
+            }}
+          >
+            Salvar
+          </Button>
+          <Link to='/categoria/editar'>
+            <Button>Cancelar</Button>
+          </Link>
         </Col>
+        {redirect}
       </Row>
     </Container>
   );

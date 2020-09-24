@@ -9,7 +9,7 @@ const H2 = styled.h2`
   padding: 0.5em 0em;
 `;
 
-export default () => {
+export default (props) => {
   return (
     <>
       <Col md="2">

@@ -22,7 +22,7 @@ function CategoriaEditar() {
 
   return (
     <>
-      <Container fluid>
+      <Container fluid style={{ height: '75vh'}}>
         <Row>
           <Col md={2}>
             <MenuLateralCategoria />

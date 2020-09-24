@@ -10,7 +10,7 @@ function CategoriaAdicionar() {
   const [novo, setNovo] = useState(0);
   return (
     <>
-      <Container fluid>
+      <Container fluid style={{ height: '75vh'}}>
         <Row>
           <Col md={2}>
             <MenuLateralCategoria />

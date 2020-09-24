@@ -5,7 +5,7 @@ export default ({ categorias, filterText }) => {
   const categoriasList = categorias
     .filter((categoria) => {
       return (
-        categoria.nome.toLowerCase().indexOf(filterText.toLowerCase()) >= 0
+        categoria.nome.toLowerCase().startsWith(filterText.toLowerCase())
       );
     })
     .map((categoria) => {
