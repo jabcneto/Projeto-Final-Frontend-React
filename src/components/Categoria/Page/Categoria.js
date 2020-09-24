@@ -37,7 +37,7 @@ function Categoria() {
 
   return (
     <>
-      <Container fluid style={{ minHeight: '75vh' }}>
+      <Container fluid style={{ minHeight: '100vh' }}>
         <Row>
           <Col md={2}>
             <MenuLateralCategoria />

@@ -57,7 +57,7 @@ export default () => {
   }
 
   return (
-    <Container fluid md="auto" style={{ minHeight: "75vh" }}>
+    <Container fluid md="auto" style={{ minHeight: "100vh" }}>
       <Row>
         <Col md={2}>
           <MenuLateralCategoria />
